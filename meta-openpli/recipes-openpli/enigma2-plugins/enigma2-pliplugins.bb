@@ -21,7 +21,7 @@ PKGV = "1.0+git${GITPKGV}"
 PR = "r5"
 
 #SRC_URI = "git://openpli.git.sourceforge.net/gitroot/openpli/enigma2-plugins;protocol=git \
-SRC_URI = "git://github.com/pli3/plugins-enigma2.git;protocol=git \
+SRC_URI = "git://github.com/pli3/enigma2-plugins.git;protocol=git \
 		   file://pythonpaths.patch"
 
 S = "${WORKDIR}/git"
