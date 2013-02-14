@@ -13,7 +13,7 @@ PKGV = "experimental-git${GITPKGV}"
 PR = "r7"
 
 #SRC_URI="git://openpli.git.sourceforge.net/gitroot/openpli/plugins-enigma2;protocol=git"
-SRC_URI="git://github.com/pli3/enigma2-plugins.git;protocol=git"
+SRC_URI="git://github.com/pli3/plugins-enigma2.git;protocol=git"
 
 EXTRA_OECONF = " \
 	BUILD_SYS=${BUILD_SYS} \
@@ -94,13 +94,5 @@ do_install_append() {
 	# remove unused .pyc files
 	find ${D}/usr/lib/enigma2/python/ -name '*.pyc' -exec rm {} \;
 	# remove leftover webinterface garbage
-	${@base_contains('MACHINE_FEATURES', 'tpm','','rm -rf ${D}/usr/lib/enigma2/python/Plugins/Extensions/WebInterface',d)}
-}
-
-python populate_packages_prepend() {
-	enigma2_plugindir = bb.data.expand('${libdir}/enigma2/python/Plugins', d)
-	do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/[a-zA-Z0-9_]+.*$', 'enigma2-plugin-%s', '%s', recursive=True, match_path=True, prepend=True)
-	do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\.la$', 'enigma2-plugin-%s-dev', '%s (development)', recursive=True, match_path=True, prepend=True)
-	do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\.a$', 'enigma2-plugin-%s-staticdev', '%s (static development)', recursive=True, match_path=True, prepend=True)
-	do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/(.*/)?\.debug/.*$', 'enigma2-plugin-%s-dbg', '%s (debug)', recursive=True, match_path=True, prepend=True)
+#	${@base_contains('MACHINE_FEATURES', 'tpm','','rm -rf ${D}/usr/lib/enigma2/python/Plugins/Extensions/WebInterface',d)}
 }
