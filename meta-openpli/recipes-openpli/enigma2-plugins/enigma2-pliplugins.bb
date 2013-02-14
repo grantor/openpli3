@@ -24,6 +24,7 @@ PR = "r5"
 #		   file://pythonpaths.patch \
 
 SRC_URI = "git://github.com/pli3/plugins-enigma2.git;protocol=git \
+		   file://pythonpaths.patch \
 			"
 
 S = "${WORKDIR}/git"
