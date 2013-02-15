@@ -13,7 +13,7 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${KV}/COPYING;md5=d7810fab7487fb0aad
 
 SRC_URI = "http://en2.ath.cx/release/images/iqon/dev/linux-${KV}-tm-${SRCDATE}.tar.gz \
         file://nfs-max-rwsize-8k.patch \
-        file://defconfig"
+        file://${MACHINE}_defconfig"
 
 S = "${WORKDIR}/linux-${KV}"
 
