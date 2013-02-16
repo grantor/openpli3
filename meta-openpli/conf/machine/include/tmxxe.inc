@@ -22,7 +22,7 @@ GLIBC_EXTRA_OECONF = "--with-tls"
 PREFERRED_VERSION_linux-${MACHINE} = "3.5.3"
 PREFERRED_VERSION_linux-libc-headers = "3.5"
 
-KV = "linux-3.5.3"
+KV = "linux-kernel-3.5.3"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-${MACHINE}"
 
