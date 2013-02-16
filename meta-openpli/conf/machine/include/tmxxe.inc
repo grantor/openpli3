@@ -22,6 +22,8 @@ GLIBC_EXTRA_OECONF = "--with-tls"
 PREFERRED_VERSION_linux-${MACHINE} = "3.5.3"
 PREFERRED_VERSION_linux-libc-headers = "3.5"
 
+KV = "linux-3.5.3"
+
 PREFERRED_PROVIDER_virtual/kernel = "linux-${MACHINE}"
 
 PREFERRED_PROVIDER_virtual/blindscan-dvbc = "vuplus-blindscan-utils-${MACHINE}"
@@ -49,7 +51,7 @@ IMAGE_CMD_ubi_append = " \
         cp ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.jffs2 ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/cfe.bin; \
         gzip -f -9c ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin > ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/oe_kernel_bin; \
         cd ${DEPLOY_DIR_IMAGE}; \
-        zip ${IMAGE_NAME}_usb.zip update/${MACHINE}/cfe/*; \
+        zip ${IMAGE_NAME}_${KV}_usb.zip update/${MACHINE}/cfe/*; \
 		rm -rf update; \
         "
 
