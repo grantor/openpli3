@@ -51,7 +51,7 @@ IMAGE_CMD_ubi_append = " \
         cp ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.jffs2 ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/cfe.bin; \
         gzip -f -9c ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin > ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/oe_kernel_bin; \
         cd ${DEPLOY_DIR_IMAGE}; \
-        zip ${IMAGE_NAME}_${KV}_usb.zip update/${MACHINE}/cfe/*; \
+        zip ${IMAGE_NAME}-${KV}-${DATE}-usb.zip update/${MACHINE}/cfe/*; \
 		rm -rf update; \
         "
 
