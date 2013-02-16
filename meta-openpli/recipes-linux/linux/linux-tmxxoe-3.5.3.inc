@@ -28,7 +28,7 @@ KERNEL_IMAGEDEST = "/tmp"
 FILES_kernel-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}*"
 
 do_configure_prepend() {
-    oe_machinstall -m 0644 ${WORKDIR}/defconfig ${S}/.config
+    oe_machinstall -m 0644 ${WORKDIR}/${MACHINE}_defconfig ${S}/.config
     oe_runmake oldconfig
 }
 
