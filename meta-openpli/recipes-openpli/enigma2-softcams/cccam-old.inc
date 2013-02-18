@@ -12,7 +12,7 @@ require softcam.inc
 
 INHIBIT_PACKAGE_STRIP = "1"
 
-CONFFILES = "/etc/CCcam.cfg"
+#CONFFILES = "/etc/CCcam.cfg"
 
 do_install() {
 	install -d ${D}/usr/bin
