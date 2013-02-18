@@ -6,7 +6,7 @@ PR = "r0"
 
 SRC_URI = "http://opengit.homelinux.com/pub/OpenPLi/src/cccam-config-${PV}.tar.gz"
 
-S = ${WORKDIR}
+S = "${WORKDIR}"
 
 INHIBIT_PACKAGE_STRIP = "1"
 
