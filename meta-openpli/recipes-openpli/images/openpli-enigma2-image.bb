@@ -99,6 +99,8 @@ IMAGE_INSTALL += " \
 	\
 	${@base_contains('OPENPLI_FEATURES', 'dvd', 'cdfs cdtextinfo kernel-module-isofs kernel-module-udf', '', d)} \
 	${@base_contains('OPENPLI_FEATURES', 'libpassthrough', 'libpassthrough', '', d)} \
+	enigma2-plugin-softcams-cccam221 \
+	enigma2-plugin-softcams-cccam-config \
 	"
 
 OPTIONAL_PACKAGES += " \
