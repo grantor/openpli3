@@ -101,7 +101,10 @@ IMAGE_INSTALL += " \
 	${@base_contains('OPENPLI_FEATURES', 'libpassthrough', 'libpassthrough', '', d)} \
 	enigma2-plugin-softcams-cccam221 \
 	vuplus-opera-browser-util \
+	\
 	enigma2-plugin-extensions-hbbtv \
+	\
+	enigma2-plugin-systemplugins-tempfancontrol \
 	"
 
 OPTIONAL_PACKAGES += " \
