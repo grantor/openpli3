@@ -157,6 +157,8 @@ SRC_URI = " git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRAN
 			file://restore.sh \
 			file://var \
 			file://def_ins \
+			file://input_rcold-configured.png \
+			file://input_rcold.png \
 		   "
 
 S = "${WORKDIR}/git"
