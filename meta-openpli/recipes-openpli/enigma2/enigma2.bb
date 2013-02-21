@@ -149,7 +149,9 @@ PR = "r42"
 
 ENIGMA2_BRANCH ?= "master"
 #SRC_URI = "git://openpli.git.sourceforge.net/gitroot/openpli/enigma2;protocol=git;branch=${ENIGMA2_BRANCH}"
-SRC_URI = "git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRANCH}"
+SRC_URI = "git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRANCH} \
+		   file://keymap.xml \
+		   "
 
 S = "${WORKDIR}/git"
 
@@ -207,6 +209,12 @@ FILES_${PN}-src = "\
 	"
 
 RADIOMVI = "radio-hd.mvi"
+
+do_configure_prepend() {
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
+		cp ${WORKDIR}/keymap.xml ${S}/data
+	fi
+}
 
 do_openpli_preinstall() {
 	ln -f ${S}/data/${RADIOMVI} ${S}/data/radio.mvi
