@@ -102,6 +102,7 @@ IMAGE_INSTALL += " \
 	enigma2-plugin-softcams-cccam221 \
 	vuplus-opera-browser-util \
 	enigma2-plugin-extensions-hbbtv \
+	enigma2-plugin-systemplugins-tempfancontrol \
 	"
 
 OPTIONAL_PACKAGES += " \
