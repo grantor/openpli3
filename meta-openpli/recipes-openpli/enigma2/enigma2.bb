@@ -149,8 +149,14 @@ PR = "r42"
 
 ENIGMA2_BRANCH ?= "master"
 #SRC_URI = "git://openpli.git.sourceforge.net/gitroot/openpli/enigma2;protocol=git;branch=${ENIGMA2_BRANCH}"
-SRC_URI = "git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRANCH} \
-		   file://keymap.xml \
+SRC_URI = " git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRANCH} \
+		    file://keymap.xml \
+			file://enigma2_end.sh \
+			file://enigma2_pre_start.sh \
+			file://enigma2.sh \
+			file://restore.sh \
+			file://var \
+			file://def_ins \
 		   "
 
 S = "${WORKDIR}/git"
@@ -210,6 +216,7 @@ FILES_${PN}-src = "\
 
 RADIOMVI = "radio-hd.mvi"
 
+## only technomate model excute "do_configure_prepend"
 do_configure_prepend() {
 	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
 		cp ${WORKDIR}/keymap.xml ${S}/data
@@ -238,6 +245,18 @@ addtask openpli_branding after do_unpack before do_configure
 do_install_append() {
 	install -d ${D}/usr/share/keymaps
 	find ${D}/usr/lib/enigma2/python/ -name '*.pyc' -exec rm {} \;
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
+		install -d 0755 ${D}/usr/bin/
+		install -d 0755 ${D}/etc/tuxbox/
+		install -d 0755 ${D}/var/
+		install -m 0755 ${WORKDIR}/enigma2_end.sh ${D}/usr/bin/
+		install -m 0755 ${WORKDIR}/enigma2_pre_start.sh ${D}/usr/bin/
+		install -m 0755 ${WORKDIR}/enigma2.sh ${D}/usr/bin/
+		ln -s /usr/bin/opkg ${D}/usr/bin/ipkg
+		ln -s /etc/tuxbox ${D}/var/tuxbox
+		cp ${WORKDIR}/var ${D}/etc/var.tar
+		mv ${WORKDIR}/def_ins ${D}/etc/.def_inst 
+	fi
 }
 
 python populate_packages_prepend() {
