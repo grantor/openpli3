@@ -159,6 +159,7 @@ SRC_URI = " git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRAN
 			file://def_ins \
 			file://input_rcold-configured.png \
 			file://input_rcold.png \
+			file://menu-${MACHINE}.xml \
 		   "
 
 S = "${WORKDIR}/git"
@@ -222,6 +223,7 @@ RADIOMVI = "radio-hd.mvi"
 do_configure_prepend() {
 	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
 		cp ${WORKDIR}/keymap.xml ${S}/data
+		cp ${WORKDIR}/menu-${MACHINE}.xml ${S}/data/menu.xml
 	fi
 }
 
