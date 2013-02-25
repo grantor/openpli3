@@ -72,6 +72,7 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-tuxcom \
 	enigma2-plugin-extensions-tuxterm \
 	enigma2-plugin-extensions-xmltvimport \
+	enigma2-plugin-systemplugins-crossepg \
 	enigma2-plugin-security-firewall \
 	enigma2-plugin-skins-pli-hd \
 	enigma2-plugins \
@@ -103,6 +104,7 @@ IMAGE_INSTALL += " \
 	vuplus-opera-browser-util \
 	enigma2-plugin-extensions-hbbtv \
 	enigma2-plugin-systemplugins-tempfancontrol \
+	enigma2-plugin-systemplugins-crossepg \
 	"
 
 OPTIONAL_PACKAGES += " \
