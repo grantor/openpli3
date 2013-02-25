@@ -260,6 +260,7 @@ do_install_append() {
 		install -m 0755 ${WORKDIR}/enigma2.sh ${D}/usr/bin/
 		install -m 0755 ${WORKDIR}/input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/
 		install -m 0755 ${WORKDIR}/input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/
+		install -m 0755 ${WORKDIR}/setup.xml ${D}/usr/share/enigma2/
 		ln -s /usr/bin/opkg ${D}/usr/bin/ipkg
 		ln -s /etc/tuxbox ${D}/var/tuxbox
 		ln -s /var/lib/opkg ${D}/usr/lib/ipkg
