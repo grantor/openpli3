@@ -160,6 +160,7 @@ SRC_URI = " git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRAN
 			file://input_rcold-configured.png \
 			file://input_rcold.png \
 			file://menu-${MACHINE}.xml \
+			file://setup.xml \
 		   "
 
 S = "${WORKDIR}/git"
@@ -253,9 +254,12 @@ do_install_append() {
 		install -d 0755 ${D}/usr/bin/
 		install -d 0755 ${D}/etc/tuxbox/
 		install -d 0755 ${D}/var/
+		install -d 0755 ${D}/usr/share/enigma2/skin_default/icons/
 		install -m 0755 ${WORKDIR}/enigma2_end.sh ${D}/usr/bin/
 		install -m 0755 ${WORKDIR}/enigma2_pre_start.sh ${D}/usr/bin/
 		install -m 0755 ${WORKDIR}/enigma2.sh ${D}/usr/bin/
+		install -m 0755 ${WORKDIR}/input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/
+		install -m 0755 ${WORKDIR}/input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/
 		ln -s /usr/bin/opkg ${D}/usr/bin/ipkg
 		ln -s /etc/tuxbox ${D}/var/tuxbox
 		ln -s /var/lib/opkg ${D}/usr/lib/ipkg
