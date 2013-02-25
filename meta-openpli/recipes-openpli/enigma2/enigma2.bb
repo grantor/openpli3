@@ -258,6 +258,7 @@ do_install_append() {
 		install -m 0755 ${WORKDIR}/enigma2.sh ${D}/usr/bin/
 		ln -s /usr/bin/opkg ${D}/usr/bin/ipkg
 		ln -s /etc/tuxbox ${D}/var/tuxbox
+		ln -s /var/lib/opkg ${D}/usr/lib/ipkg
 		cp ${WORKDIR}/var ${D}/etc/var.tar
 		mv ${WORKDIR}/def_ins ${D}/etc/.def_inst 
 	fi
