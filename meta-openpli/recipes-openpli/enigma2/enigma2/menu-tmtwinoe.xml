@@ -26,44 +26,7 @@
 		</menu>
 
 		<item level="1" text="Plugins" entryID="plugin_selection"><screen module="PluginBrowser" screen="PluginBrowser" /></item>
-		<item level="1" text="My Plugins" entryID="myplugin_selection">
-<code>
-
-def restore():
-	import os
-	if os.path.exists("/etc/opkg.tar"):
-		from Components.Console import Console
-		console = Console()
-		cmd = "rm -rf /etc/opkg;"
-		cmd += "tar xf /etc/opkg.tar -C /;"
-		console.ePopen(cmd)
-
-def backupIpkgConf():
-	import os
-	if not os.path.exists("/etc/opkg.tar"):
-		cmd = "tar cf /etc/opkg.tar /etc/opkg;"
-		cmd += "cp /etc/opkg/arch.conf /etc/myopkg;"
-		cmd += "cp /etc/opkg/opkg.conf /etc/myopkg"
-		os.system(cmd)
-
-def setMyIpkg():
-	import os
-	cmd = "rm -rf /etc/opkg;"
-	cmd += "ln -s /etc/myopkg /etc/opkg;"
-	os.system(cmd)
-
-import os
-if os.path.exists("/etc/myopkg/myserver.conf") and "src/gz" in "".join(open("/etc/myopkg/myserver.conf", "r").readlines()):
-	backupIpkgConf()
-	setMyIpkg()
-	from Screens.PluginBrowser import PluginDownloadBrowser
-	self.session.openWithCallback(restore, PluginDownloadBrowser)
-else:
-	from Screens.MessageBox import MessageBox
-	self.session.open(MessageBox, text = "No server list found\nPlease add server url on My Server menu", type = MessageBox.TYPE_ERROR)
-</code>
 </item>
-		<item level="1" text="My Server" entryID="myserver_selection"><screen module="MyIpkgServer" screen="MyIpkgServer" /></item>
 		<menu level="0" text="Setup" flushConfigOnClose="1" entryID="setup_selection" >
 			<id val="setup" />
 			<!--<menu text="Service Organising">
