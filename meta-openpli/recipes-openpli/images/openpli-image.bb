@@ -27,6 +27,7 @@ IMAGE_INSTALL = " \
 	util-linux-sfdisk \
 	volatile-media \
 	vsftpd \
+	tslib \
 	"
 
 OPTIONAL_PACKAGES ?= ""
