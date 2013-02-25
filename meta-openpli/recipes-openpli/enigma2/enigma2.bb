@@ -260,7 +260,8 @@ do_install_append() {
 		ln -s /etc/tuxbox ${D}/var/tuxbox
 		ln -s /var/lib/opkg ${D}/usr/lib/ipkg
 		cp ${WORKDIR}/var ${D}/etc/var.tar
-		cp ${WORKDIR}/def_ins ${D}/etc/.def_inst
+		tar xf ${WORKDIR}/def_ins -C ${WORKDIR}/
+		mv ${WORKDIR}/def_inst ${D}/etc/.def_inst
 	fi
 }
 
