@@ -1,5 +1,6 @@
 <menu text="Mainmenu" title="Main menu">
-	<id val="mainmenu" /> <!-- the following types are allowed:
+	<id val="mainmenu" />
+<!-- the following types are allowed:
 	<screen [module="mod"] [screen="classname"]>[arguments]</screen> 
 		executes Screen called "classname" from module "Screen.mod"
 		if no module is given, Screen must be globally available.
@@ -26,7 +27,6 @@
 		</menu>
 
 		<item level="1" text="Plugins" entryID="plugin_selection"><screen module="PluginBrowser" screen="PluginBrowser" /></item>
-</item>
 		<menu level="0" text="Setup" flushConfigOnClose="1" entryID="setup_selection" >
 			<id val="setup" />
 			<!--<menu text="Service Organising">
