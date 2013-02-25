@@ -14,6 +14,10 @@ PR = "r0"
 
 inherit python-dir
 
+SRC_URI = " \
+			file://crossepg_menu.py \
+			file://plugin.py \
+		"
 require openplugins.inc
 
 FILES_${PN} = "/usr/*"
@@ -28,4 +32,8 @@ do_compile() {
 
 do_install() {
 	oe_runmake 'D=${D}' install
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmnanooe" ]; then
+		install -m 0644 ${WORKDIR}/crossepg_menu.py ${D}${PLUGINPATH}/
+		install -m 0644 ${WORKDIR}/plugin.py ${D}${PLUGINPATH}/
+	fi
 }
