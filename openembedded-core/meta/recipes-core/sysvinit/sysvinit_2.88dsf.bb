@@ -17,6 +17,7 @@ SRC_URI = "http://download.savannah.gnu.org/releases-noredirect/sysvinit/sysvini
            file://rcS-default \
            file://rc \
            file://rcS \
+		   file://rcS-tm \
 	   file://bootlogd.init"
 
 SRC_URI[md5sum] = "6eda8a97b86e0a6f59dabbf25202aa6f"
@@ -56,7 +57,11 @@ do_install () {
 		   ${D}${sysconfdir}/init.d
 	install -m 0644    ${WORKDIR}/rcS-default	${D}${sysconfdir}/default/rcS
 	install -m 0755    ${WORKDIR}/rc		${D}${sysconfdir}/init.d
-	install -m 0755    ${WORKDIR}/rcS		${D}${sysconfdir}/init.d
+	if [ "${MACHINE}" = "tmtwinoe" ]; then
+		install -m 0755    ${WORKDIR}/rcS-tm		${D}${sysconfdir}/init.d/rcS
+	else
+		install -m 0755    ${WORKDIR}/rcS		${D}${sysconfdir}/init.d
+	fi
 	install -m 0755    ${WORKDIR}/bootlogd.init     ${D}${sysconfdir}/init.d/bootlogd
 	ln -sf bootlogd ${D}${sysconfdir}/init.d/stop-bootlogd
 	install -d ${D}${sysconfdir}/rcS.d

@@ -19,3 +19,5 @@ do_install() {
 	install -m 0644 ${S}/newcs-config/etc/tuxbox/config/newcs.xml ${D}/etc/tuxbox/config/newcs.xml
 }
 
+SRC_URI[md5sum] = "d3f9b9fb7463873e7bad239ee69b36af"
+SRC_URI[sha256sum] = "0f3ceb53cdf342c6c81ba5e955d026260f816263143d282d616e3330cb988cc2"
