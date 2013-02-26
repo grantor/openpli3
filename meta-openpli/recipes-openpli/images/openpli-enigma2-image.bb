@@ -31,6 +31,7 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-extensions-openwebif \
 	enigma2-plugin-extensions-permanenttimeshift \
 	enigma2-plugin-extensions-pictureplayer \
+	enigma2-plugin-extensions-ppanel \
 	enigma2-plugin-extensions-shoutcast \
 	\
 	enigma2-plugin-pli-softcamsetup \
@@ -73,7 +74,6 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-extensions-tuxcom \
 	enigma2-plugin-extensions-tuxterm \
 	enigma2-plugin-extensions-xmltvimport \
-	enigma2-plugin-extensions-ppanel \
 	enigma2-plugin-systemplugins-crossepg \
 	enigma2-plugin-security-firewall \
 	enigma2-plugin-skins-pli-hd \
