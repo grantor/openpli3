@@ -24,6 +24,8 @@ SRC_URI = "file://rotation \
            file://usbd \
            file://share/dot.bashrc \
            file://share/dot.profile \
+	    	file://CCcam.xml \
+	    	file://PPanel_tutorial.xml \
            file://licenses/GPL-2 \
            "
 S = "${WORKDIR}"
@@ -107,6 +109,9 @@ do_install () {
 	if [ "${MACHINE}" = "tmtwinoe" ]; then
 		install -d 0755 ${D}/usr/lib/
 		ln -s /var/lib/opkg ${D}/usr/lib/ipkg
+		install -d 0755 ${D}/etc/ppanels/
+		install -m 0644 ${WORKDIR}/CCcam.xml ${D}/etc/ppanels/
+		install -m 0644 ${WORKDIR}/PPanel_tutorial.xml ${D}/etc/ppanels/
 	fi
 }
 
