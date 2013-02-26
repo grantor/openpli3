@@ -254,7 +254,6 @@ do_install_append() {
 		install -d 0755 ${D}/usr/bin/
 		install -d 0755 ${D}/etc/tuxbox/
 		install -d 0755 ${D}/var/
-		install -d 0755 ${D}/usr/lib/
 		install -d 0755 ${D}/usr/share/enigma2/skin_default/icons/
 		install -m 0755 ${WORKDIR}/enigma2_end.sh ${D}/usr/bin/
 		install -m 0755 ${WORKDIR}/enigma2_pre_start.sh ${D}/usr/bin/
@@ -264,7 +263,6 @@ do_install_append() {
 		install -m 0755 ${WORKDIR}/setup.xml ${D}/usr/share/enigma2/
 		ln -s /usr/bin/opkg ${D}/usr/bin/ipkg
 		ln -s /etc/tuxbox ${D}/var/tuxbox
-		ln -s /var/lib/opkg ${D}/usr/lib/ipkg
 		cp ${WORKDIR}/var ${D}/etc/var.tar
 		tar xf ${WORKDIR}/def_ins -C ${WORKDIR}/
 		mv ${WORKDIR}/def_inst ${D}/etc/.def_inst
