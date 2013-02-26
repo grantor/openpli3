@@ -20,6 +20,9 @@ SRC_URI += " \
 			file://inetd \
 			file://inetd.conf \
 			"
+SRC_URI += " \
+			file://mdev.conf \
+			"
 
 # we do not really depend on mtd-utils, but as mtd-utils replaces 
 # include/mtd/* we cannot build in parallel with mtd-utils
@@ -46,6 +49,10 @@ do_install_append() {
 	fi
 	install -d ${D}${sysconfdir}/mdev
 	install -m 0755 ${WORKDIR}/mdev-mount.sh ${D}${sysconfdir}/mdev
+
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingleoe"]; then
+		install -m 0755 ${WORKDIR}/mdev.conf ${D}/etc/
+	fi
 }
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${P}:"
