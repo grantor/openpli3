@@ -14,10 +14,10 @@ PR = "r0.72"
 require openplugins.inc
 
 SRC_URI += "file://base.py \
-file://info.py \
-file://${MACHINE}.html \
-file://${MACHINE}.jpg \
-file://${MACHINE}.png \
+			file://info.py \
+			file://${MACHINE}.html \
+			file://${MACHINE}.jpg \
+			file://${MACHINE}.png \
 "
 
 # Just a quick hack to "compile" it
@@ -30,17 +30,31 @@ PLUGINPATH = "/usr/lib/enigma2/python/Plugins/Extensions/${MODULE}"
 do_install() {
 	install -d ${D}${PLUGINPATH}
 	cp -rp ${S}/plugin/* ${D}${PLUGINPATH}
-}
 
-do_install_append() {
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE} = "tmsingleoe" -o "${MACHINE} = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmnanooe" ]; then
-		cp -rp ${S}/plugin/* ${D}${PLUGINPATH}
+#	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE} = "tmsingleoe" -o "${MACHINE} = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmnanooe" ]; then
+#		cp -rp ${S}/plugin/* ${D}${PLUGINPATH}
+#		install -m 0755 ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
+#		install -m 0755 ${WORKDIR}/info.py ${D}${PLUGINPATH}/public/images/boxes/
+#		install -m 0755 ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/remotes
+#		install -m 0755 ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
+#		install -m 0755 ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
 		cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
 		cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/public/images/boxes/
 		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/
 		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
-	fi
+#	fi
 }
+
+#do_install_append() {
+#	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE} = "tmsingleoe" -o "${MACHINE} = "ios#100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmnanooe" ]; then
+#		cp -rp ${S}/plugin/* ${D}${PLUGINPATH}
+#		cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
+#		cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/public/images/boxes/
+#		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/
+#		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
+#		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
+#	fi
+#}
 
 FILES_${PN} = "${PLUGINPATH}"
