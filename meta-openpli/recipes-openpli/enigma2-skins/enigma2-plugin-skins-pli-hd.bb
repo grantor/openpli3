@@ -35,4 +35,7 @@ do_install() {
 	install -d ${D}/usr/share
 	cp -rp ${S}/usr/share/* ${D}/usr/share/
 	chmod -R a+rX ${D}/usr/share/enigma2/
+	if [ "${MACHINE}" = "tmtwinoe" ]; then
+		cp -rp ${WORKDIR}/skin.xml ${D}/usr/share/enigma2/PLi-HD/
+	fi
 }

@@ -29,8 +29,7 @@ IMAGE_INSTALL = " \
 	vsftpd \
 	tslib \
 	busybox-mdev \
-	gdata \
-	python-twisted \
+	python-gdata \
 	"
 
 OPTIONAL_PACKAGES ?= ""
