@@ -28,6 +28,7 @@ IMAGE_INSTALL = " \
 	volatile-media \
 	vsftpd \
 	tslib \
+	busybox-mdev \
 	"
 
 OPTIONAL_PACKAGES ?= ""

@@ -31,7 +31,6 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-extensions-openwebif \
 	enigma2-plugin-extensions-pictureplayer \
 	enigma2-plugin-extensions-ppanel \
-	enigma2-plugin-extensionis-mytube \
 	\
 	enigma2-plugin-pli-softcamsetup \
 	\
