@@ -161,6 +161,7 @@ SRC_URI = " git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRAN
 			file://input_rcold.png \
 			file://menu-${MACHINE}.xml \
 			file://setup.xml \
+			file://e2settings \
 		   "
 
 S = "${WORKDIR}/git"
@@ -266,6 +267,7 @@ do_install_append() {
 		cp ${WORKDIR}/var ${D}/etc/var.tar
 		tar xf ${WORKDIR}/def_ins -C ${WORKDIR}/
 		mv ${WORKDIR}/def_inst ${D}/etc/.def_inst
+		cp ${WORKDIR}/e2settings ${D}/etc/.e2settings.tar
 	fi
 }
 
