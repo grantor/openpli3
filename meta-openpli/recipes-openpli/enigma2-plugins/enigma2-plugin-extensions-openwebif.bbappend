@@ -16,6 +16,7 @@ python do_package_prepend () {
 		('vusolo2', 'solo2.jpg', 'vu_ultimo.png'),
 		('vuultimo', 'ultimo.jpg', 'vu_ultimo.png'),
 		('vuuno', 'uno.jpg', 'vu_normal.png'),
+		('tmtwinoe', 'tmtwinoe.jpg', 'tmtwinoe.png'),
 	]
 	import os
 	top = '${D}${PLUGINPATH}/public/images/'
