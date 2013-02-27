@@ -105,7 +105,6 @@ IMAGE_INSTALL += " \
 	enigma2-plugin-softcams-cccam221 \
 	enigma2-plugin-softcams-cccam-config \
 	vuplus-opera-browser-util \
-	enigma2-plugin-extensions-hbbtv \
 	enigma2-plugin-extensions-mytube \
 	enigma2-plugin-systemplugins-tempfancontrol \
 	enigma2-plugin-systemplugins-crossepg \
