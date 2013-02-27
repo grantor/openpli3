@@ -179,6 +179,8 @@
 		<key id="KEY_ESC" mapto="back" flags="m" />
 		<!-- [iq -->
 		<key id="KEY_MENU" mapto="menu" flags="m" />
+		<key id="KEY_NEXT" mapto="nextSubservice" flags="m" />
+		<key id="KEY_PREVIOUS" mapto="prevSubservice" flags="m" />
 		<!-- iq] -->
 	</map>
 	
