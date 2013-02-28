@@ -22,16 +22,12 @@ WIFI_DRIVERS = " \
 	"
 
 ENIGMA2_PLUGINS = " \
-	enigma2-plugin-extensions-audiosync \
-	enigma2-plugin-extensions-autobackup \
 	enigma2-plugin-extensions-cooltvguide \
 	enigma2-plugin-extensions-cutlisteditor \
 	enigma2-plugin-extensions-graphmultiepg \
-	enigma2-plugin-extensions-mediaplayer \
 	enigma2-plugin-extensions-mediascanner \
 	enigma2-plugin-extensions-openwebif \
 	enigma2-plugin-extensions-permanenttimeshift \
-	enigma2-plugin-extensions-pictureplayer \
 	enigma2-plugin-extensions-ppanel \
 	enigma2-plugin-extensions-shoutcast \
 	\
@@ -47,7 +43,6 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-systemplugins-videomode \
 	enigma2-plugin-systemplugins-videotune \
 	\
-	${@base_contains("MACHINE_FEATURES", "3dtv", "enigma2-plugin-systemplugins-osd3dsetup" , "", d)} \
 	${@base_contains("MACHINE_FEATURES", "dvb-c", "enigma2-plugin-systemplugins-cablescan" , "", d)} \
 	${@base_contains("MACHINE_FEATURES", "frontprocessor", "enigma2-plugin-systemplugins-frontprocessorupgrade" , "", d)} \
 	${@base_contains("MACHINE_FEATURES", "hdmicec", "enigma2-plugin-systemplugins-hdmicec" , "", d)} \
