@@ -3,7 +3,7 @@ SECTION = "base"
 PRIORITY = "required"
 LICENSE = "CLOSED"
 
-SRCDATE = "20121208"
+SRCDATE = "20130228"
 KV = "3.5.3"
 PV = "${KV}+${SRCDATE}"
 PR = "r0"
@@ -11,7 +11,7 @@ PR = "r0"
 RCONFLICTS_${PN} = "technomate-dvb-modules"
 RREPLACES_${PN} = "technomate-dvb-modules"
 
-SRC_URI = "http://en2.ath.cx/release/images/iqon/dev/bcmlinuxdvb_7335-${KV}-${SRCDATE}.tar.gz"
+SRC_URI = "http://opengit.homelinux.com/pub/OpenPLi3/drivers/bcmlinuxdvb_7335-${KV}-${SRCDATE}.tar.gz"
 
 S = "${WORKDIR}"
 
