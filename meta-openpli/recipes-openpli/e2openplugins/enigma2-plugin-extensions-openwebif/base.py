@@ -139,11 +139,8 @@ class BaseController(resource.Resource):
 		ret['box'] = "dmm"
 		if fileExists("/proc/stb/info/hwmodel"):
 			ret['box'] = open("/proc/stb/info/hwmodel").read().strip()
-		elif fileExists("/proc/stb/info/vumodel"):
-			ret['box'] = open("/proc/stb/info/vumodel").read().strip()
 		elif fileExists("/proc/stb/info/azmodel"):
 			ret['box'] = open("/proc/stb/info/model").read().strip()
-
 			
 		if ret["box"] == "ios200hd":
 			ret["remote"] = "ios200hd"
