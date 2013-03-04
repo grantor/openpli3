@@ -16,5 +16,6 @@ EXTRA_OECONF = "\
 
 LEAD_SONAME = "libdirectfb-1.4.so.6"
 
-SRC_URI[md5sum] = "9b2b90b81d7ded2a4a5caa22daeb81ef"
-SRC_URI[sha256sum] = "a40e640b53da9b2b155d98bf8cb1d173b01418c04b176768307adebefa0b78a8"
+SRC_URI[md5sum] = "888e9b2e3d33a42c3c105d6551e06555"
+SRC_URI[sha256sum] = "a1609713ae7c50f8ad7b94b2ad53ef90c0d82e66d17fe41c9b39403d809a9c6d"
+
