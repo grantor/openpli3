@@ -9,10 +9,12 @@ require conf/license/openpli-gplv2.inc
 SRC_URI = "file://cfe-${MACHINE}.bin"
 
 do_compile(){
-	mkdir -p ${DEPLOY_DIR_IMAGE}
-	cp ${WORKDIR}/cfe-${MACHINE}.bin .
-}
-
-do_install(){
-	install -m 0755 ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
+#	mkdir -p ${DEPLOY_DIR_IMAGE}
+#	cp ${WORKDIR}/cfe-${MACHINE}.bin .
+	if [ ! -d "${DEPLOY_DIR_IMAGE}" ]; then
+		mkdir -p ${DEPLOY_DIR_IMAGE}
+		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
+	else
+		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
+	fi
 }
