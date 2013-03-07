@@ -10,8 +10,6 @@ PR = "r0"
 
 RCONFLICTS_${PN} = "technomate-dvb-modules"
 RREPLACES_${PN} = "technomate-dvb-modules"
-#RDEPENDS += "technomate-bootloader"
-#RDEPENDS += "technomate-logo"
 
 SRC_URI = "http://opengit.homelinux.com/pub/OpenPLi3/drivers/bcmlinuxdvb_7335-${KV}-${SRCDATE}.tar.gz"
 
