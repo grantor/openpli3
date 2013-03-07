@@ -1,1 +1,1 @@
-IMAGE_INSTALL += "directfb"
+IMAGE_INSTALL += "gtk+"
