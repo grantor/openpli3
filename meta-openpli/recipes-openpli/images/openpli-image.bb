@@ -30,7 +30,6 @@ IMAGE_INSTALL = " \
 	tslib \
 	busybox-mdev \
 	python-gdata \
-	directfb \
 	"
 
 OPTIONAL_PACKAGES ?= ""
