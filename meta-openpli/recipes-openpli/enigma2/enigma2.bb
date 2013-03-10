@@ -151,6 +151,7 @@ ENIGMA2_BRANCH ?= "master"
 #SRC_URI = "git://openpli.git.sourceforge.net/gitroot/openpli/enigma2;protocol=git;branch=${ENIGMA2_BRANCH}"
 SRC_URI = " git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRANCH} \
 		    file://keymap.xml \
+			file://${MACHINE}.keymap.xml \
 			file://enigma2_end.sh \
 			file://enigma2_pre_start.sh \
 			file://enigma2.sh \
@@ -223,9 +224,13 @@ RADIOMVI = "radio-hd.mvi"
 
 ## only technomate model excute "do_configure_prepend"
 do_configure_prepend() {
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" ]; then
 		cp ${WORKDIR}/keymap.xml ${S}/data
 		cp ${WORKDIR}/menu-${MACHINE}.xml ${S}/data/menu.xml
+	else
+		if [ "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" ]; then
+			cp ${WORKDIR}/${MACHINE}.keymap.xml ${S}/data
+		fi
 	fi
 }
 

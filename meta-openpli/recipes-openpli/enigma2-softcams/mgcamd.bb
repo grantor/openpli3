@@ -25,7 +25,6 @@ CAMSTART = "sleep 3 ; start-stop-daemon -S -b -x /usr/bin/${CAMNAME}"
 require softcam.inc
 
 do_install() {
-	if [ "${MACHINE}" = "tmtwinoe" ]; then
 		install -d ${D}/usr/bin
 		install -m 0755 ${S}/mgcamd.mips ${D}/usr/bin/mgcamd
 		install -d ${D}/etc/tuxbox/config
@@ -42,7 +41,6 @@ do_install() {
 		install -m 0644 ${S}/peer.cfg ${D}/usr/keys/peer.cfg
 		install -m 0644 ${S}/priority.list ${D}/usr/keys/priority.list
 		install -m 0644 ${S}/replace.list ${D}/usr/keys/replace.list
-	fi
 }
 
 pkg_postinst () {
