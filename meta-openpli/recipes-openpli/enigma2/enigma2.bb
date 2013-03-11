@@ -269,7 +269,6 @@ do_install_append() {
 		install -m 0755 ${WORKDIR}/input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/
 		install -m 0755 ${WORKDIR}/setup.xml ${D}/usr/share/enigma2/
 		ln -s /usr/bin/opkg ${D}/usr/bin/ipkg
-		ln -s /var/lib/opkg ${D}/usr/lib/ipkg
 		ln -s /etc/tuxbox ${D}/var/tuxbox
 		cp ${WORKDIR}/var ${D}/etc/var.tar
 		cp ${WORKDIR}/menu-${MACHINE}.xml ${D}/usr/share/enigma2/menu.xml
