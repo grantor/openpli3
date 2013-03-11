@@ -57,7 +57,7 @@ do_install () {
 		   ${D}${sysconfdir}/init.d
 	install -m 0644    ${WORKDIR}/rcS-default	${D}${sysconfdir}/default/rcS
 	install -m 0755    ${WORKDIR}/rc		${D}${sysconfdir}/init.d
-	if [ "${MACHINE}" = "tmtwinoe" ]; then
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" ]; then
 		install -m 0755    ${WORKDIR}/rcS-tm		${D}${sysconfdir}/init.d/rcS
 	else
 		install -m 0755    ${WORKDIR}/rcS		${D}${sysconfdir}/init.d
