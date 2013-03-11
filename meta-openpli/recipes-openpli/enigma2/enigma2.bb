@@ -271,6 +271,8 @@ do_install_append() {
 		ln -s /var/lib/opkg ${D}/usr/lib/ipkg
 		ln -s /etc/tuxbox ${D}/var/tuxbox
 		cp ${WORKDIR}/var ${D}/etc/var.tar
+		cp ${WORKDIR}/menu-${MACHINE}.xml ${D}/usr/share/enigma2/menu.xml
+		cp ${WORKDIR}/keymap.xml ${D}/usr/share/enigma2/keymap.xml
 		tar xf ${WORKDIR}/def_ins -C ${WORKDIR}/
 		mv ${WORKDIR}/def_inst ${D}/etc/.def_inst
 		cp ${WORKDIR}/e2settings ${D}/etc/.e2settings.tar
