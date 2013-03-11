@@ -230,6 +230,7 @@ do_configure_prepend() {
 	else
 		if [ "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" ]; then
 			cp ${WORKDIR}/${MACHINE}.keymap.xml ${S}/data
+			cp ${WORKDIR}/menu-${MACHINE}.xml ${S}/data/menu.xml
 		fi
 	fi
 }
