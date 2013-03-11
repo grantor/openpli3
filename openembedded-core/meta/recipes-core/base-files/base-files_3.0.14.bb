@@ -106,7 +106,7 @@ do_install () {
 	install -m 0644 ${WORKDIR}/motd ${D}${sysconfdir}/motd
 
 	ln -sf /proc/mounts ${D}${sysconfdir}/mtab
-	if [ "${MACHINE}" = "tmtwinoe" ]; then
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" ]; then
 		install -d 0755 ${D}/usr/lib/
 		ln -s /var/lib/opkg ${D}/usr/lib/ipkg
 		install -d 0755 ${D}/etc/ppanels/
