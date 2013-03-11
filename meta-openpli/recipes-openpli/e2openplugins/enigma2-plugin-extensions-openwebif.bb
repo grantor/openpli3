@@ -18,6 +18,10 @@ SRC_URI += "file://base.py \
 			file://${MACHINE}.html \
 			file://${MACHINE}.jpg \
 			file://${MACHINE}.png \
+			file://${MACHINE}hd.html \
+			file://${MACHINE}hd.jpg \
+			file://${MACHINE}hd.png \
+			file://ajax.py \
 "
 
 # Just a quick hack to "compile" it
@@ -31,12 +35,21 @@ do_install() {
 	install -d ${D}${PLUGINPATH}
 	cp -rp ${S}/plugin/* ${D}${PLUGINPATH}
 
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE} = "tmsingleoe" -o "${MACHINE} = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmnanooe" ]; then
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE} = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" ]; then
+		cp -rp ${WORKDIR}/ajax.py ${D}${PLUGINPATH}/controllers/
 		cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
 		cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/controllers/models/
 		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/
 		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
+	fi
+	if [ "${MACHINE} = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
+		cp -rp ${WORKDIR}/ajax.py ${D}${PLUGINPATH}/controllers/
+		cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
+		cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/controllers/models/
+		cp -rp ${WORKDIR}/${MACHINE}hd.jpg ${D}${PLUGINPATH}/public/images/boxes/
+		cp -rp ${WORKDIR}/${MACHINE}hd.png ${D}${PLUGINPATH}/public/images/remotes/
+		cp -rf ${WORKDIR}/${MACHINE}hd.html ${D}${PLUGINPATH}/public/static/remotes/
 	fi
 }
 
