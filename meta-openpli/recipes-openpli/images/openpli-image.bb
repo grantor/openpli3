@@ -74,6 +74,8 @@ OPTIONAL_PACKAGES += " \
 	wakelan \
 	xfsprogs \
 	zeroconf \
+	technomate-bootloader \
+	technomate-logo \
 	"
 
 export IMAGE_BASENAME = "openpli"
