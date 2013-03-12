@@ -163,6 +163,7 @@ SRC_URI = " git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRAN
 			file://menu-${MACHINE}.xml \
 			file://setup.xml \
 			file://e2settings \
+			file://satellites.xml \
 		   "
 
 S = "${WORKDIR}/git"
@@ -276,6 +277,7 @@ do_install_append() {
 		tar xf ${WORKDIR}/def_ins -C ${WORKDIR}/
 		mv ${WORKDIR}/def_inst ${D}/etc/.def_inst
 		cp ${WORKDIR}/e2settings ${D}/etc/.e2settings.tar
+		cp -f ${WORKDIR}/satellites.xml ${D}/etc/tuxbox/satellites.xml
 	fi
 }
 
