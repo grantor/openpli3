@@ -7,7 +7,7 @@ FEEDS = "3rd-party"
 
 do_compile() {
     mkdir -p ${S}/${sysconfdir}/opkg
-	if [ "${MACHINE}" = "tmtwinoe" ]; then
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
 		for feed in ${FEEDS}; do
 			echo "src/gz ${DISTRO_FEED_PREFIX}-${feed} ${DISTRO_FEED_URI_TM}/${feed}" > ${S}/${sysconfdir}/opkg/${feed}-feed.conf
 		done
