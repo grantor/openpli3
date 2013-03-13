@@ -135,7 +135,7 @@ backup_channel_lists()
 	tar cf $CHLISTS_TAR $CHLISTS_FILES
 }
 
-mount_mtdblock
+#mount_mtdblock		mtd for old internet update, for now not supporting jffs2 or ubi utils to mount as ubifs
 echo == ret $1
 case $1 in
 	64)
