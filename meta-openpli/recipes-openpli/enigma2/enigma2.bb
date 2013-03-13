@@ -224,14 +224,9 @@ RADIOMVI = "radio-hd.mvi"
 
 ## only technomate model excute "do_configure_prepend"
 do_configure_prepend() {
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" ]; then
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
 		cp ${WORKDIR}/keymap.xml ${S}/data
 		cp ${WORKDIR}/menu-${MACHINE}.xml ${S}/data/menu.xml
-	else
-		if [ "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" ]; then
-			cp ${WORKDIR}/${MACHINE}.keymap.xml ${S}/data
-			cp ${WORKDIR}/menu-${MACHINE}.xml ${S}/data/menu.xml
-		fi
 	fi
 }
 
