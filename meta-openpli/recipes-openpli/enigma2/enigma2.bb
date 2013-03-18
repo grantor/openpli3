@@ -164,6 +164,7 @@ SRC_URI = " git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRAN
 			file://setup.xml \
 			file://e2settings \
 			file://satellites.xml \
+			file://profile \
 		   "
 
 S = "${WORKDIR}/git"
@@ -256,6 +257,7 @@ do_install_append() {
 	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
 		install -d 0755 ${D}/usr/bin/
 		install -d 0755 ${D}/etc/tuxbox/
+		install -d 0755 ${D}/etc/enigma2/
 		install -d 0755 ${D}/var/
 		install -d 0755 ${D}/usr/share/enigma2/skin_default/icons/
 		install -m 0755 ${WORKDIR}/enigma2_end.sh ${D}/usr/bin/
@@ -273,6 +275,7 @@ do_install_append() {
 		mv ${WORKDIR}/def_inst ${D}/etc/.def_inst
 		cp ${WORKDIR}/e2settings ${D}/etc/.e2settings.tar
 		cp -f ${WORKDIR}/satellites.xml ${D}/etc/tuxbox/satellites.xml
+		cp -f ${WORKDIR}/profile ${D}/etc/enigma2/enigma2.profile
 	fi
 }
 

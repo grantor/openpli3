@@ -1,0 +1,87 @@
+  0.018	PYTHON_START
+  0.032	SimpleSummary
+  0.107	LOAD:GUISkin
+  0.151	LOAD:ElementTree
+  0.342	LOAD:enigma_skin
+  0.789	LoadSkin
+  1.243	LoadSkinDefaultDone
+  1.256	LOAD:Source
+  1.259	LOAD:GUIComponent
+  1.261	LOAD:eRCInput
+  4.706	LOAD:enigma
+  4.709	LOAD:InfoBarGenerics
+  4.817	ChannelSelection.py 1
+  4.939	ChannelSelection.py 2
+  4.941	ChannelSelection.py 2.1
+  4.962	ChannelSelection.py 2.2
+  4.965	ChannelSelection.py 2.3
+  4.968	ChannelSelection.py 3
+  4.987	ChannelSelection.py 4
+  5.013	ChannelSelection.py after imports
+  5.294	LOAD:InitBar_Components
+  5.296	LOAD:HelpableScreen
+  5.311	Bouquets
+  7.504	ParentalControl
+  7.516	LOAD:Navigation
+  7.537	LOAD:skin
+  7.540	LOAD:Tools
+  7.545	config.misc
+  7.558	Twisted
+  8.670	LOAD:Plugin
+  8.673	LOAD:Wizard
+  8.755	misc
+  8.757	LOAD:ScreenGlobals
+  8.827	Screen
+  8.831	Standby,PowerKey
+  8.834	Scart
+  8.842	Load:CI
+  8.859	Load:VolumeControl
+  8.900	VolumeControl
+  8.904	Init:skin
+  9.300	InputDevice
+  9.347	SetupDevices
+ 10.160	AVSwitch
+ 11.664	RecordingConfig
+ 11.675	UsageConfig
+ 11.794	keymapparser
+ 11.999	Network
+ 12.001	LCD
+ 13.140	RFMod
+ 13.161	Init:CI
+ 13.177	RcModel
+ 13.180	Init:RCU
+ 13.192	readPluginList
+ 13.200	plugin SoftcamSetup
+ 13.239	plugin CutListEditor
+ 13.277	plugin Tuxtxt
+ 13.292	plugin SHOUTcast
+ 14.087	plugin MediaScanner
+ 14.140	plugin HbbTV
+ 14.433	plugin GraphMultiEPG
+ 14.535	plugin OpenWebif
+ 16.487	plugin WebInterface
+ 16.500	plugin CoolTVGuide
+ 17.467	plugin PPanel
+ 17.483	plugin PermanentTimeshift
+ 17.609	plugin MyTube
+ 18.559	plugin OSDPositionSetup
+ 18.589	plugin FastScan
+ 18.617	plugin SatelliteEquipmentControl
+ 18.675	plugin Satfinder
+ 18.760	plugin SoftwareManager
+ 18.981	plugin PositionerSetup
+ 19.047	plugin Hotplug
+ 19.064	plugin WirelessLan
+ 19.181	plugin CrossEPG
+ 19.470	plugin NetworkWizard
+ 19.487	plugin NetworkBrowser
+ 19.690	plugin VideoTune
+ 19.706	plugin Videomode
+ 19.858	plugin HdmiCEC
+ 19.880	plugin SkinSelector
+ 19.921	Init:Session
+ 20.153	wizards
+ 21.986	Init:VolumeControl
+ 22.039	Init:PowerKey
+ 22.048	Init:Trashcan
+ 22.052	RunReactor
