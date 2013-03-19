@@ -44,9 +44,9 @@ do_install() {
 		cp -rp ${WORKDIR}/ajax.py ${D}${PLUGINPATH}/controllers/
 		cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
 		cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/controllers/models/
-		cp -rp ${WORKDIR}/${MACHINE}hd.jpg ${D}${PLUGINPATH}/public/images/boxes/
-		cp -rp ${WORKDIR}/${MACHINE}hd.png ${D}${PLUGINPATH}/public/images/remotes/
-		cp -rf ${WORKDIR}/${MACHINE}hd.html ${D}${PLUGINPATH}/public/static/remotes/
+		cp -rp ${WORKDIR}/${MACHINE}hd.jpg ${D}${PLUGINPATH}/public/images/boxes/${MACHINE}hd.jpg
+		cp -rp ${WORKDIR}/${MACHINE}hd.png ${D}${PLUGINPATH}/public/images/remotes/${MACHINE}hd.png
+		cp -rf ${WORKDIR}/${MACHINE}hd.html ${D}${PLUGINPATH}/public/static/remotes/${MACHINE}hd.html
 	fi
 }
 
