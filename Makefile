@@ -4,7 +4,7 @@
 MACHINE ?= ${subst /,,${subst build-,,${firstword ${dir ${wildcard build-*/}}}}}
 
 ifeq "$(MACHINE)" ""
-	MACHINE=ios300
+	MACHINE=tmtwinoe
 endif
 
 # Adjust according to the number CPU cores to use for parallel build.
@@ -79,6 +79,10 @@ update:
 	if [ "$$HASH" != "`$(XSUM) $(MAKEFILE_LIST)`" ]; then \
 		echo 'Makefile changed. Restarting...'; \
 		$(MAKE) $(MFLAGS) --no-print-directory $(MAKECMDGOALS); \
+	else \
+		$(GIT) submodule sync && \
+		$(GIT) submodule update --init && \
+		echo "The openpli OE is now up-to-date."; \
 	fi
 
 .PHONY: all image init initialize update usage
