@@ -10,15 +10,17 @@ PR = "r6"
 RDEPENDS_${PN} = "${PN}-inittab"
 
 SRC_URI = "http://download.savannah.gnu.org/releases-noredirect/sysvinit/sysvinit-${PV}.tar.bz2 \
-	   file://install.patch \
-	   file://crypt-lib.patch \
-           file://need \
-           file://provide \
-           file://rcS-default \
-           file://rc \
-           file://rcS \
-		   file://rcS-tm \
-	   file://bootlogd.init"
+		file://install.patch \
+		file://crypt-lib.patch \
+		file://need \
+		file://provide \
+		file://rcS-default \
+		file://rc \
+		file://rcS \
+		file://rcS-tm \
+		file://profile \
+		file://bootlogd.init \
+		"
 
 SRC_URI[md5sum] = "6eda8a97b86e0a6f59dabbf25202aa6f"
 SRC_URI[sha256sum] = "60bbc8c1e1792056e23761d22960b30bb13eccc2cabff8c7310a01f4d5df1519"
@@ -58,6 +60,8 @@ do_install () {
 	install -m 0644    ${WORKDIR}/rcS-default	${D}${sysconfdir}/default/rcS
 	install -m 0755    ${WORKDIR}/rc		${D}${sysconfdir}/init.d
 	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" ]; then
+		install -d ${D}${sysconfdir}/etc/
+		install -m 0755	${WORKDIR}/profile ${D}${sysconfdir}/etc/enigma2.profile
 		install -m 0755    ${WORKDIR}/rcS-tm		${D}${sysconfdir}/init.d/rcS
 	else
 		install -m 0755    ${WORKDIR}/rcS		${D}${sysconfdir}/init.d
