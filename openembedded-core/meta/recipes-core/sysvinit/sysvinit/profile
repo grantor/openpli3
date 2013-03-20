@@ -1,87 +1,87 @@
-  0.017	PYTHON_START
-  0.031	SimpleSummary
-  0.105	LOAD:GUISkin
-  0.147	LOAD:ElementTree
-  0.334	LOAD:enigma_skin
-  0.769	LoadSkin
-  1.224	LoadSkinDefaultDone
-  1.236	LOAD:Source
-  1.239	LOAD:GUIComponent
-  1.242	LOAD:eRCInput
-  5.621	LOAD:enigma
-  5.623	LOAD:InfoBarGenerics
-  5.749	ChannelSelection.py 1
-  5.851	ChannelSelection.py 2
-  5.853	ChannelSelection.py 2.1
-  5.873	ChannelSelection.py 2.2
-  5.876	ChannelSelection.py 2.3
-  5.879	ChannelSelection.py 3
-  5.899	ChannelSelection.py 4
-  5.927	ChannelSelection.py after imports
-  6.196	LOAD:InitBar_Components
-  6.199	LOAD:HelpableScreen
-  6.214	Bouquets
-  6.237	ParentalControl
-  6.249	LOAD:Navigation
-  6.270	LOAD:skin
-  6.272	LOAD:Tools
-  6.277	config.misc
-  6.289	Twisted
-  7.373	LOAD:Plugin
-  7.375	LOAD:Wizard
-  7.462	misc
-  7.464	LOAD:ScreenGlobals
-  7.530	Screen
-  7.534	Standby,PowerKey
-  7.537	Scart
-  7.546	Load:CI
-  7.564	Load:VolumeControl
-  7.609	VolumeControl
-  7.612	Init:skin
-  8.006	InputDevice
-  8.053	SetupDevices
-  8.854	AVSwitch
-  9.358	RecordingConfig
-  9.370	UsageConfig
-  9.539	keymapparser
-  9.772	Network
-  9.775	LCD
- 10.793	RFMod
- 10.804	Init:CI
- 10.818	RcModel
- 10.821	Init:RCU
- 10.836	readPluginList
- 10.845	plugin SoftcamSetup
- 10.878	plugin CutListEditor
- 10.916	plugin Tuxtxt
- 10.932	plugin SHOUTcast
- 11.691	plugin MediaScanner
- 11.746	plugin HbbTV
- 12.057	plugin GraphMultiEPG
- 12.160	plugin OpenWebif
- 14.105	plugin WebInterface
- 14.113	plugin CoolTVGuide
- 15.066	plugin PPanel
- 15.082	plugin PermanentTimeshift
- 15.210	plugin MyTube
- 16.154	plugin OSDPositionSetup
- 16.185	plugin FastScan
- 16.214	plugin SatelliteEquipmentControl
- 16.235	plugin Satfinder
- 16.319	plugin SoftwareManager
- 16.538	plugin PositionerSetup
- 16.606	plugin Hotplug
- 16.624	plugin WirelessLan
- 16.736	plugin CrossEPG
- 17.009	plugin NetworkWizard
- 17.264	plugin NetworkBrowser
- 17.467	plugin VideoTune
- 17.483	plugin Videomode
- 17.630	plugin HdmiCEC
- 17.652	plugin SkinSelector
- 17.692	Init:Session
- 17.881	wizards
- 18.563	Init:VolumeControl
- 18.629	Init:PowerKey
- 18.640	Init:Trashcan
- 18.643	RunReactor
+  0.004	PYTHON_START
+  0.015	SimpleSummary
+  0.088	LOAD:GUISkin
+  0.129	LOAD:ElementTree
+  0.322	LOAD:enigma_skin
+  0.768	LoadSkin
+  1.234	LoadSkinDefaultDone
+  1.248	LOAD:Source
+  1.248	LOAD:GUIComponent
+  1.248	LOAD:eRCInput
+  5.070	LOAD:enigma
+  5.071	LOAD:InfoBarGenerics
+  5.192	ChannelSelection.py 1
+  5.292	ChannelSelection.py 2
+  5.292	ChannelSelection.py 2.1
+  5.308	ChannelSelection.py 2.2
+  5.309	ChannelSelection.py 2.3
+  5.309	ChannelSelection.py 3
+  5.326	ChannelSelection.py 4
+  5.349	ChannelSelection.py after imports
+  5.614	LOAD:InitBar_Components
+  5.614	LOAD:HelpableScreen
+  5.626	Bouquets
+  5.647	ParentalControl
+  5.656	LOAD:Navigation
+  5.674	LOAD:skin
+  5.675	LOAD:Tools
+  5.676	config.misc
+  5.686	Twisted
+  6.758	LOAD:Plugin
+  6.758	LOAD:Wizard
+  6.841	misc
+  6.841	LOAD:ScreenGlobals
+  6.903	Screen
+  6.905	Standby,PowerKey
+  6.906	Scart
+  6.911	Load:CI
+  6.925	Load:VolumeControl
+  6.966	VolumeControl
+  6.967	Init:skin
+  7.361	InputDevice
+  7.405	SetupDevices
+  8.198	AVSwitch
+  8.719	RecordingConfig
+  8.728	UsageConfig
+  8.893	keymapparser
+  9.133	Network
+  9.134	LCD
+ 10.150	RFMod
+ 10.159	Init:CI
+ 10.170	RcModel
+ 10.170	Init:RCU
+ 10.181	readPluginList
+ 10.186	plugin SoftcamSetup
+ 10.222	plugin CutListEditor
+ 10.256	plugin Tuxtxt
+ 10.268	plugin SHOUTcast
+ 11.026	plugin MediaScanner
+ 11.078	plugin HbbTV
+ 11.386	plugin GraphMultiEPG
+ 11.487	plugin OpenWebif
+ 13.435	plugin WebInterface
+ 13.445	plugin CoolTVGuide
+ 14.386	plugin PPanel
+ 14.398	plugin PermanentTimeshift
+ 14.526	plugin MyTube
+ 15.481	plugin OSDPositionSetup
+ 15.508	plugin FastScan
+ 15.534	plugin SatelliteEquipmentControl
+ 15.552	plugin Satfinder
+ 15.632	plugin SoftwareManager
+ 15.851	plugin PositionerSetup
+ 15.916	plugin Hotplug
+ 15.931	plugin WirelessLan
+ 16.045	plugin CrossEPG
+ 16.335	plugin NetworkWizard
+ 16.591	plugin NetworkBrowser
+ 16.793	plugin VideoTune
+ 16.805	plugin Videomode
+ 16.949	plugin HdmiCEC
+ 16.967	plugin SkinSelector
+ 17.004	Init:Session
+ 17.203	wizards
+ 17.879	Init:VolumeControl
+ 17.940	Init:PowerKey
+ 17.946	Init:Trashcan
+ 17.947	RunReactor

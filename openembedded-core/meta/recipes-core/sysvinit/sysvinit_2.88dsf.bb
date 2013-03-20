@@ -20,6 +20,7 @@ SRC_URI = "http://download.savannah.gnu.org/releases-noredirect/sysvinit/sysvini
 		file://rcS-tm \
 		file://profile \
 		file://bootlogd.init \
+		file://satellites.xml \
 		"
 
 SRC_URI[md5sum] = "6eda8a97b86e0a6f59dabbf25202aa6f"
@@ -60,8 +61,10 @@ do_install () {
 	install -m 0644    ${WORKDIR}/rcS-default	${D}${sysconfdir}/default/rcS
 	install -m 0755    ${WORKDIR}/rc		${D}${sysconfdir}/init.d
 	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" ]; then
+		install -d ${D}${sysconfdir}/tuxbox/
 		cp ${WORKDIR}/profile ${D}${sysconfdir}/enigma2.profile
 		install -m 0755    ${WORKDIR}/rcS-tm		${D}${sysconfdir}/init.d/rcS
+		cp ${WORKDIR}/satellites.xml ${D}${sysconfdir}/tuxbox
 	else
 		install -m 0755    ${WORKDIR}/rcS		${D}${sysconfdir}/init.d
 	fi
