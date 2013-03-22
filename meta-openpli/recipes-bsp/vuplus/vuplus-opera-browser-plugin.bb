@@ -18,6 +18,7 @@ SRC_URI = "git://code.vuplus.com/git/dvbapp.git;protocol=http;branch=${BRANCH};t
 	    file://vuplus-opera-browser-plugin_20130105.patch;striplevel=1 \
 	    file://aitreader.py \
 	    file://dumpait \
+		file://keymap.xml \
 "
 
 S = "${WORKDIR}/git"
@@ -27,6 +28,7 @@ do_install() {
 	install -m 0644 ${S}/lib/python/Plugins/Extensions/HbbTV/*.py ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV
 	install -m 0644 ${WORKDIR}/aitreader.py ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV
 	install -m 0755 ${WORKDIR}/dumpait ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV
+	cp ${WORKDIR}/keymap.xml ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV
 
 	python -O -m compileall ${D}/usr/lib/enigma2/python/Plugins/
 }
