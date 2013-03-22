@@ -8,7 +8,8 @@ RDEPENS = "tslib-conf libts-1.0-0 libsysfs2 libgmp3 libmpfr1 "
 
 SRC_DATE = "20121128_0"
 SRC_URI = "http://code.vuplus.com/download/build.fc3abf29fb03f797e78f907928125638/embedded/opera-sdk-build-package/opera-hbbtv_${SRC_DATE}.tar.gz \
-		   file://setting.ini \
+		    file://setting.ini \
+			file://keymap.xml \
 		   "
 
 PR = "r2_${SRC_DATE}"
@@ -42,6 +43,7 @@ do_install() {
 	install -d ${D}/usr/lib/enigma2/python/Plugins/Extensions
 	install -d ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV
 	cp -avR ${S}/plugin/* ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV
+	cp -avR ${S}/keymap.xml ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV
 }
 
 INHIBIT_PACKAGE_STRIP = "1"
