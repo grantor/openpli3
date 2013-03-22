@@ -1,5 +1,5 @@
 --- linux-3.5.3/arch/mips/brcmstb/setup.c	2012-12-08 17:25:02.000000000 +0900
-+++ linux-3.5.3.diff/arch/mips/brcmstb/setup.c	2013-02-19 16:39:50.067578005 +0900
++++ setup.c	2013-03-22 20:05:44.507446431 +0900
 @@ -45,7 +45,8 @@
  #include <asm/war.h>
  #include <linux/syscore_ops.h>
@@ -40,7 +40,7 @@
  
  }
 +
-+#if 1 // mkseo_micom_check
++#if 0 // mkseo_micom_check
 +static int standby_micom(void)
 +{
 +	u8 micom_getversion_seq[3] = { 0x7f, 0x1, 0x12};
@@ -98,13 +98,13 @@
 +
 +	//@ NOTE :
 +#if 0
- 	u8 micom_init_seq[9] = { 0x7f, 0x7, 0x10, 0x84, 0x72, 0x1, 0x4, 0x4, 0x0a };
+ 	u8 micom_init_seq[9] = { 0x7f, 0x7, 0x10, 0x84, 0x71, 0x1, 0x4, 0x4, 0x0a };
 +#endif
  	u8 micom_standby[3] = { 0x7f, 0x1, 0x40 };
  
  	/* set micom to get power key */
 -	fixme_micom_send_data(micom_init_seq, 9);
-+	//@ NOTE : fixme_micom_send_data(micom_init_seq, 9); 
++	//fixme_micom_send_data(micom_init_seq, 9); 
  
  	/* micom power off */
  	micom_send_data(micom_standby, 3);
