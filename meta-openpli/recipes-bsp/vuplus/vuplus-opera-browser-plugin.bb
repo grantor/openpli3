@@ -19,6 +19,7 @@ SRC_URI = "git://code.vuplus.com/git/dvbapp.git;protocol=http;branch=${BRANCH};t
 	    file://aitreader.py \
 	    file://dumpait \
 		file://keymap.xml \
+		file://plugin.py \
 "
 
 S = "${WORKDIR}/git"
@@ -29,6 +30,7 @@ do_install() {
 	install -m 0644 ${WORKDIR}/aitreader.py ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV
 	install -m 0755 ${WORKDIR}/dumpait ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV
 	cp ${WORKDIR}/keymap.xml ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV
+	cp ${WORKDIR}/plugin.py ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV
 
 	python -O -m compileall ${D}/usr/lib/enigma2/python/Plugins/
 }
