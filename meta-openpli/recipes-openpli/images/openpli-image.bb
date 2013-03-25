@@ -30,6 +30,8 @@ IMAGE_INSTALL = " \
 	tslib \
 	busybox-mdev \
 	python-gdata \
+	kernel-params \
+	openssl \
 	"
 
 OPTIONAL_PACKAGES ?= ""
