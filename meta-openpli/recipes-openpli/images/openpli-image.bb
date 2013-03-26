@@ -32,6 +32,7 @@ IMAGE_INSTALL = " \
 	python-gdata \
 	kernel-params \
 	openssl \
+	libcrypto-compat \
 	"
 
 OPTIONAL_PACKAGES ?= ""
