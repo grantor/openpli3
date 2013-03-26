@@ -35,6 +35,13 @@ do_install() {
 
 	install -d ${D}/usr/share
 	cp -avR ${S}/dfb/usr/share/* ${D}/usr/share/
+
+	install -d ${D}/usr/lib/enigma2
+	install -d ${D}/usr/lib/enigma2/python
+	install -d ${D}/usr/lib/enigma2/python/Plugins
+	install -d ${D}/usr/lib/enigma2/python/Plugins/Extensions
+	install -d ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV
+	cp -avR ${S}/plugin/* ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV
 }
 
 INHIBIT_PACKAGE_STRIP = "1"
