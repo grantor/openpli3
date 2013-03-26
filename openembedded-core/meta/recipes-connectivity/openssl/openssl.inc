@@ -139,6 +139,11 @@ do_install () {
 		sed -i s#libdir=\$\{exec_prefix\}\/lib#libdir=${base_libdir}# ${D}/${libdir}/pkgconfig/libcrypto.pc
 	fi
 
+# NOTE
+	install -d ${D}/lib
+	ln -s libcrypto.so.0.9.8 ${D}/lib/libcrypto.so.0.9.7
+	ln -s libssl.so.0.9.8 ${D}/lib/libssl.so.0.9.7
+
 	install -d ${D}${includedir}
 	cp --dereference -R include/openssl ${D}${includedir}
 	sed -i -e '1s,.*,#!${bindir}/env perl,' ${D}${libdir}/ssl/misc/CA.pl
