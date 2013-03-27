@@ -33,6 +33,7 @@ IMAGE_INSTALL = " \
 	kernel-params \
 	openssl \
 	libcrypto-compat \
+	gst-plugins-ugly \
 	"
 
 OPTIONAL_PACKAGES ?= ""
