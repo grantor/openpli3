@@ -275,6 +275,12 @@ do_install_append() {
 		cp ${WORKDIR}/e2settings ${D}/etc/.e2settings.tar
 		cp ${WORKDIR}/satellites.xml ${D}/etc/tuxbox
 	fi
+# NOTE : model fancontrol
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" ]; then
+		cp -Ra ${S}/lib/python/Plugins/SystemPlugins/TempFanControl/ ${D}/usr/lib/enigma2/python/Plugins/SystemPlugins/
+		rm -rf ${D}/usr/lib/enigma2/python/Plugins/SystemPlugins/TempFanControl/Makefile*
+		rm -rf ${D}/usr/lib/enigma2/python/Plugins/SystemPlugins/TempFanControl/meta/Makefile*
+	fi
 }
 
 python populate_packages_prepend() {
