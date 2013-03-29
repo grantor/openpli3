@@ -29,6 +29,7 @@ do_install() {
     install -d ${D}/lib/modules/${KV}/extra
     for f in lib/modules/${KV}/extra/*.ko; do
         install -m 0644 $f ${D}/$f;
+		install -m 0644 ${WORKDIR}/$f ${DEPLOY_DIR_IMAGE}/
     done
     install -d ${D}/${sysconfdir}/modules-load.d
     for i in `ls ${D}/lib/modules/${KV}/extra | grep \\.ko | sed -e 's/.ko//g'`; do
