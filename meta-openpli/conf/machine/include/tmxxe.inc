@@ -53,10 +53,11 @@ IMAGE_CMD_ubi_append = " \
         cd ${DEPLOY_DIR_IMAGE}; \
         zip ${IMAGE_NAME}-${KV}-${DATE}-usb.zip update/${MACHINE}/cfe/*; \
 		rm -rf update; \
+		rm -rf ${DEPLOY_DIR_IMAGE}/enigma2_2.7*; \
 		cp ${DEPLOY_DIR_IPK}/${MACHINE}/enigma2_2.7* ${DEPLOY_DIR_IMAGE}; \
 		gzip -f -c ${DEPLOY_DIR_IMAGE}/vmlinux-3.5.3*.bin > ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin.gz; \
 		cp ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin.gz ${DEPLOY_DIR_IMAGE}/oe_kernel.bin; \
-		tar cfvz ${DEPLOY_DIR_IMAGE}/test_${MACHINE}_${DATE} oe_kernel.bin enigma2_2.7* bcmlinuxdvb.ko; \
+		tar cf ${DEPLOY_DIR_IMAGE}/test_${MACHINE}_${DATE} oe_kernel.bin enigma2_2.7* bcmlinuxdvb.ko; \
         "
 
 TARGET_FPU = "hard"
