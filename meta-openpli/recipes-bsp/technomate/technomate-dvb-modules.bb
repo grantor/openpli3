@@ -3,7 +3,7 @@ SECTION = "base"
 PRIORITY = "required"
 LICENSE = "CLOSED"
 
-SRCDATE = "20130327"
+SRCDATE = "20130329"
 KV = "3.5.3"
 PV = "${KV}+${SRCDATE}"
 PR = "r0"
@@ -26,6 +26,9 @@ do_compile() {
 }
 
 do_install() {
+    if [ ! -d "${DEPLOY_DIR_IMAGE}" ];then
+        mkdir -p ${DEPLOY_DIR_IMAGE}
+    fi
     install -d ${D}/lib/modules/${KV}/extra
     for f in lib/modules/${KV}/extra/*.ko; do
         install -m 0644 $f ${D}/$f;
