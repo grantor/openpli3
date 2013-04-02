@@ -21,7 +21,6 @@ IMAGE_INSTALL = " \
 	sdparm \
 	task-base \
 	task-core-boot \
-	tuxbox-common \
 	tuxbox-links \
 	tzdata \
 	util-linux-sfdisk \
