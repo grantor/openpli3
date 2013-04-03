@@ -149,7 +149,7 @@ class BaseController(resource.Resource):
 		elif ret["box"] == "ios100hd":
 			ret["remote"] = "ios100hd"
 		elif ret["box"] == "tmsingle" or ret["box"] == "tmsinglesr" or ret["box"] == "tmsinglemini" or ret["box"] == "tmsingleminisr" or ret["box"] == "tmsingleoe":
-			ret["remote"] = "single"
+			ret["remote"] = "tmsingle"
 		elif ret["box"] == "2t" or ret["box"] == "tm2toe" or ret["box"] == "tm2toesr":
 			ret["remote"] = "2t"
 		elif ret["box"] == "tmtwinoe" or ret["box"] == "tmtwinoesr":
