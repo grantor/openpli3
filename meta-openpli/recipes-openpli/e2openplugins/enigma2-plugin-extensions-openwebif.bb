@@ -32,7 +32,7 @@ do_install() {
 	install -d ${D}${PLUGINPATH}
 	cp -rp ${S}/plugin/* ${D}${PLUGINPATH}
 
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" ]; then
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "tmnanooe" ]; then
 		cp -rp ${WORKDIR}/ajax.py ${D}${PLUGINPATH}/controllers/
 		cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
 		cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/controllers/models/
