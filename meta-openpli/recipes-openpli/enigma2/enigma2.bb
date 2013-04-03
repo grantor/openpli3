@@ -225,7 +225,7 @@ RADIOMVI = "radio-hd.mvi"
 
 ## only technomate model excute "do_configure_prepend"
 do_configure_prepend() {
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
 		cp ${WORKDIR}/keymap.xml ${S}/data
 		cp ${WORKDIR}/menu-${MACHINE}.xml ${S}/data/menu.xml
 	fi
@@ -253,7 +253,7 @@ addtask openpli_branding after do_unpack before do_configure
 do_install_append() {
 	install -d ${D}/usr/share/keymaps
 	find ${D}/usr/lib/enigma2/python/ -name '*.pyc' -exec rm {} \;
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingleoe" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
 		install -d 0755 ${D}/usr/bin/
 		install -d 0755 ${D}/etc/tuxbox/
 		install -d 0755 ${D}/etc/enigma2/
