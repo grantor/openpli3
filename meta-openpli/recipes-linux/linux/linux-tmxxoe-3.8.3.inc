@@ -1,9 +1,9 @@
 DESCRIPTION = "Linux kernel for ${MACHINE}"
 LICENSE = "GPL"
 SECTION = "kernel"
-KV = "3.5.3"
+KV = "3.8.3"
 
-SRCDATE = "20121208"
+SRCDATE = "20130410"
 MACHINE_KERNEL_PR_append = ".5"
 
 SRC_URI[md5sum] = "536456dd7b0f797bf8ca50694991def1"
@@ -13,7 +13,7 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${KV}/COPYING;md5=d7810fab7487fb0aad
 
 SRC_URI = "http://opengit.homelinux.com/pub/OpenPLi3/src/linux-${KV}-${SRCDATE}.tar.gz \
         file://nfs-max-rwsize-8k.patch \
-        file://${MACHINE}_defconfig"
+		"
 
 S = "${WORKDIR}/linux-${KV}"
 
