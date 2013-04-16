@@ -39,6 +39,7 @@ do_install() {
 		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/
 		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
+		find ${D}${PLUGINPATH}/ -name '*.pyo' -exec rm {} \;
 	fi
 	if [ "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
 		cp -rp ${WORKDIR}/ajax.py ${D}${PLUGINPATH}/controllers/
@@ -47,6 +48,7 @@ do_install() {
 		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/${MACHINE}hd.jpg
 		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/${MACHINE}hd.png
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/${MACHINE}hd.html
+		find ${D}${PLUGINPATH}/ -name '*.pyo' -exec rm {} \;
 	fi
 }
 
