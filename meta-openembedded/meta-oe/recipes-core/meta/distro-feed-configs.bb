@@ -8,7 +8,7 @@ DISTRO_FEED_URI ?= "http://my-distribution.example/remote-feed/"
 
 do_compile() {
     mkdir -p ${S}/${sysconfdir}/opkg
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "mediabox" ]; then
     	for feed in all ${PACKAGE_EXTRA_ARCHS} ${MACHINE_ARCH}; do
 			echo "src/gz ${DISTRO_FEED_PREFIX}-${feed} ${DISTRO_FEED_URI_TM}/${feed}" > ${S}/${sysconfdir}/opkg/${feed}-feed.conf
    		 done
