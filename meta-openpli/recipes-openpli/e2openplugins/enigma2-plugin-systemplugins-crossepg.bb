@@ -35,11 +35,7 @@ do_install() {
 }
 
 do_install_append() {
-<<<<<<< HEAD
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "mediabox" -o "${MACHINE}" = "tm2tsuper" -o ]; then
-=======
 	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "mediabox" ]; then
->>>>>>> 1bb20d1a34b67c7ba0e83030d8b4bb519976dbd0
 		install -m 0644 ${WORKDIR}/crossepg_menu.py ${D}${PLUGINPATH}/
 		install -m 0644 ${WORKDIR}/plugin.py ${D}${PLUGINPATH}/
 	fi
