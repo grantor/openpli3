@@ -265,8 +265,8 @@ do_install_append() {
 		install -m 0755 ${WORKDIR}/enigma2_pre_start.sh ${D}/usr/bin/
 		install -m 0755 ${WORKDIR}/enigma2.sh ${D}/usr/bin/
 		if [ "${MACHINE}" = "mediabox" ]; then
-			install -m 0755 ${WORKDIR}/${MACHINE}.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/
-			install -m 0755 ${WORKDIR}/${MACHINE}.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/
+			install -m 0755 ${WORKDIR}/${MACHINE}.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png
+			install -m 0755 ${WORKDIR}/${MACHINE}.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold-configured.png
 		else
 			install -m 0755 ${WORKDIR}/input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/
 			install -m 0755 ${WORKDIR}/input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/
