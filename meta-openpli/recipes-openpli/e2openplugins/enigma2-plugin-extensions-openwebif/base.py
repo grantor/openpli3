@@ -156,6 +156,8 @@ class BaseController(resource.Resource):
 			ret["remote"] = "tm2toe"
 		elif ret["box"] == "tmtwinoe" or ret["box"] == "tmtwinoesr":
 			ret["remote"] = "tmtwinoe"
+		elif ret["box"] == "tmnanooe":
+			ret["remote"] = "tmnanooe"
 		elif ret["box"] == "ultimo":
 			ret["remote"] = "vu_ultimo"
 		elif ret["box"] == "et9x00" or ret["box"] == "et9000" or ret["box"] == "et9200":
