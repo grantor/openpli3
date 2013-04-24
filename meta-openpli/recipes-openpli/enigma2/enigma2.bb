@@ -160,6 +160,8 @@ SRC_URI = " git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRAN
 			file://def_ins \
 			file://input_rcold-configured.png \
 			file://input_rcold.png \
+			file://${MACHINE}.input_rcold.png \
+			file://${MACHINE}.input_rcold-configured.png \
 			file://menu-${MACHINE}.xml \
 			file://setup.xml \
 			file://e2settings \
@@ -262,8 +264,13 @@ do_install_append() {
 		install -m 0755 ${WORKDIR}/enigma2_end.sh ${D}/usr/bin/
 		install -m 0755 ${WORKDIR}/enigma2_pre_start.sh ${D}/usr/bin/
 		install -m 0755 ${WORKDIR}/enigma2.sh ${D}/usr/bin/
-		install -m 0755 ${WORKDIR}/input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/
-		install -m 0755 ${WORKDIR}/input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/
+		if [ "${MACHINE}" = "mediabox" ]; then
+			install -m 0755 ${WORKDIR}/${MACHINE}.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png
+			install -m 0755 ${WORKDIR}/${MACHINE}.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold-configured.png
+		else
+			install -m 0755 ${WORKDIR}/input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/
+			install -m 0755 ${WORKDIR}/input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/
+		fi
 		install -m 0755 ${WORKDIR}/setup.xml ${D}/usr/share/enigma2/
 		ln -s /usr/bin/opkg ${D}/usr/bin/ipkg
 		ln -s /etc/tuxbox ${D}/var/tuxbox
