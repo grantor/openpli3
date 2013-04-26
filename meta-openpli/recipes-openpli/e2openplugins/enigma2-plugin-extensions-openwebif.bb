@@ -55,7 +55,7 @@ do_install() {
 		cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
 		cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/controllers/models/
 		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/Mediabox\ HD\ LX-1.jpg
-		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/Mediabox\ HD\ LX-1.png
+		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
 		find ${D}${PLUGINPATH}/ -name '*.pyo' -exec rm {} \;
 	fi
