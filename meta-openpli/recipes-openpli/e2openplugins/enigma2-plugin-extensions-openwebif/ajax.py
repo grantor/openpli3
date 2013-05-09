@@ -102,13 +102,8 @@ class AjaxController(BaseController):
 	def P_screenshot(self, request):
 		box = {}
 		box['brand'] = "dmm"
-		info = getInfo()
-		model = info["model"]
 		if fileExists("/proc/stb/info/hwmodel"):
-			if model = "mediabox":
-				box['brand'] = "Jepsson"
-			else:
-				box['brand'] = "4D"
+			box['brand'] = "4D"
 		elif fileExists("/proc/stb/info/azmodel"):
 			box['brand'] = "azbox"
 		return { "box": box }
