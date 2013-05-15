@@ -3,7 +3,7 @@ SECTION = "base"
 PRIORITY = "required"
 LICENSE = "CLOSED"
 
-SRCDATE = "20130503"
+SRCDATE = "20130514"
 KV = "3.5.3"
 PV = "${KV}+${SRCDATE}"
 PR = "r0"
@@ -11,7 +11,8 @@ PR = "r0"
 RCONFLICTS_${PN} = "technomate-dvb-modules"
 RREPLACES_${PN} = "technomate-dvb-modules"
 
-SRC_URI = "http://opengit.homelinux.com/pub/OpenPLi3/drivers/bcmlinuxdvb_7335-${KV}-${SRCDATE}.tar.gz \
+#SRC_URI = "http://opengit.homelinux.com/pub/OpenPLi3/drivers/bcmlinuxdvb_7335-${KV}-${SRCDATE}.tar.gz 
+SRC_URI = "http://en2.ath.cx/release/images/iqon/dev/bcmlinuxdvb_7335-${KV}-${SRCDATE}.tar.gz \
 		file://cfe-${MACHINE}.bin \
 		file://splash.bmp \
 "
@@ -48,6 +49,6 @@ do_install() {
 	fi
 }
 
-SRC_URI[md5sum] = "75bb3260a7520affc8c1856d2aad2c80"
-SRC_URI[sha256sum] = "4d0b5218922370f909c2648f241c300b22d77c84145b2d24e8c931f052105d51"
+SRC_URI[md5sum] = "0687a87dc5fbf0a012b76d5afec2317c"
+SRC_URI[sha256sum] = "f83116149d7befa0436938072213644c90b63d5e68e3d25da7be82e5b44d63ee"
 
