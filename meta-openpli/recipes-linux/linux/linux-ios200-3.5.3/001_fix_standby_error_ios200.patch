@@ -1,6 +1,5 @@
-diff -urN linux-3.5.3/arch/mips/brcmstb/setup.c linux-3.5.3.diff/arch/mips/brcmstb/setup.c
---- linux-3.5.3/arch/mips/brcmstb/setup.c	2013-04-08 14:47:47.835472332 +0900
-+++ linux-3.5.3.diff/arch/mips/brcmstb/setup.c	2013-04-08 14:53:38.231486972 +0900
+--- linux-3.5.3/arch/mips/brcmstb/setup.c	2013-03-07 13:37:40.000000000 +0900
++++ linux-3.5.3.ios200/arch/mips/brcmstb/setup.c	2013-05-07 15:35:23.095043414 +0900
 @@ -45,7 +45,8 @@
  #include <asm/war.h>
  #include <linux/syscore_ops.h>
@@ -104,12 +103,12 @@ diff -urN linux-3.5.3/arch/mips/brcmstb/setup.c linux-3.5.3.diff/arch/mips/brcms
  #if defined(CONFIG_BRCM_HAS_SDIO_V1)
  
  static void brcm_add_sdio_host(int id, uintptr_t cfg_base, uintptr_t host_base,
-@@ -796,17 +824,17 @@
+@@ -796,14 +824,14 @@
  			primary_type = i;
  
  	/* ignore CFE variables; use hardcoded mtd config */
 -#if 0 /*TMTWIn*/
-+#if TMTWIN == 0
++#if 0//TMTWIN == 0
  	primary = 0;
  #endif
  	primary_type = TYPE_NAND;
@@ -117,15 +116,10 @@ diff -urN linux-3.5.3/arch/mips/brcmstb/setup.c linux-3.5.3.diff/arch/mips/brcms
  
  	/* scan each chip select to see what (if anything) lives there */
 -#if 0 /*TMTWIn*/
--	for (i = 0; i < NUM_CS; i++) {
--#else
 +#if TMTWIN
+ 	for (i = 0; i < NUM_CS; i++) {
+ #else
  	for (i = 1; i < NUM_CS; i++) {
-+#else
-+	for (i = 0; i < NUM_CS; i++) {
- #endif
- 		u32 base, size, config __maybe_unused;
- 
 @@ -934,9 +962,6 @@
  
  static void brcm_machine_restart(char *command)
@@ -176,81 +170,3 @@ diff -urN linux-3.5.3/arch/mips/brcmstb/setup.c linux-3.5.3.diff/arch/mips/brcms
  void __init plat_mem_setup(void)
  {
  	_machine_restart     = brcm_machine_restart;
-
-diff -urN linux-3.5.3/arch/mips/brcmstb/Kconfig linux-3.5.3.diff/arch/mips/brcmstb/Kconfig
---- linux-3.5.3/arch/mips/brcmstb/Kconfig 	2013-03-07 13:37:40.000000000 +0900
-+++ linux-3.5.3.diff/arch/mips/brcmstb/Kconfig	2013-04-08 15:10:18.007528208 +0900
-@@ -98,7 +98,6 @@
- 	select BRCM_UARTC_IS_3250
- 	select BRCM_SHARED_UART_IRQ
- 	select BRCM_HAS_PCI23
--	select BRCM_HAS_NOR
- 	select BRCM_HAS_NAND_MAJOR_0
- 	select BRCM_HAS_NAND_MINOR_1
- 	select BRCM_HAS_1GB_MEMC0
-@@ -359,6 +358,35 @@
- 
- config BCM7346B0
- 	bool "7346 Bx"
-+	select BRCM_PLATFORM_DEFAULTS
-+	select BCM7346
-+	select BMIPS5000
-+	select BRCM_HAS_XKS01
-+	select BRCM_HAS_XI
-+	select BRCM_UARTA_IS_16550
-+	select BRCM_UARTB_IS_16550
-+	select BRCM_UARTC_IS_16550
-+	select BRCM_HAS_USB_CAPS
-+	select BRCM_HAS_GENET_0
-+	select BRCM_HAS_MOCA_11_PLUS
-+	select BRCM_HAS_MOCA_MIDRF
-+	select BRCM_MOCA_ON_GENET_1
-+	select BRCM_GENET_V2
-+	select BRCM_HAS_NOR
-+	select BRCM_HAS_NAND_MAJOR_5
-+	select BRCM_HAS_NAND_MINOR_0
-+	select BRCM_HAS_BSPI_V4
-+	select BRCM_HAS_SDIO_V1
-+	select BRCM_HAS_SATA3
-+	select BRCM_HAS_WKTMR
-+	select BRCM_HAS_UPPER_MEMORY
-+	select BRCM_HAS_1GB_MEMC0
-+	select BRCM_HAS_AON
-+	select BRCM_PWR_HANDSHAKE_V1
-+	select BRCM_HAS_DIGITAL_DDR_PHY
-+
-+config BCM7346B0
-+	bool "7346 Bx"
- 	select BRCM_PLATFORM_DEFAULTS
- 	select BCM7346
- 	select BMIPS5000
-
-diff -urN linux-3.5.3/arch/mips/kernel/setup.c linux-3.5.3.diff/arch/mips/kernel/setup.c
---- linux-3.5.3/arch/mips/kernel/setup.c	2013-03-07 13:37:47.000000000 +0900
-+++ linux-3.5.3.diff/arch/mips/kernel/setup.c	2013-04-08 15:03:36.635511825 +0900
-@@ -531,15 +531,26 @@
-         strncpy(hwtype,hwtypeLength,21);
-         pr_info("Found hwtype\n");
- 		memset(boot_command_line,COMMAND_LINE_SIZE,0);
-+#ifdef BRCM_HAS_NOR
- 		sprintf(boot_command_line,"%s %s", "bmem=112M ubi.mtd=4 root=ubi0:rootfs rootfstype=ubifs rw console=ttyS0,115200n8 slab_max_order=0 rootflags=sync",hwtype);
- 		sprintf(command_line,"%s %s", "bmem=112M ubi.mtd=4 root=ubi0:rootfs rootfstype=ubifs rw console=ttyS0,115200n8 slab_max_order=0 rootflags=sync",hwtype);
-+#else
-+        sprintf(boot_command_line,"%s %s", "bmem=112M ubi.mtd=0 root=ubi0:rootfs rootfstype=ubifs rw console=ttyS0,115200n8 slab_max_order=0 rootflags=sync",hwtype);
-+        sprintf(command_line,"%s %s", "bmem=112M ubi.mtd=0 root=ubi0:rootfs rootfstype=ubifs rw console=ttyS0,115200n8 slab_max_order=0 rootflags=sync",hwtype);
-+#endif
- 	}
- 	else
- 	{
-         pr_info("Not  Found hwtypes\n");
- 		memset(boot_command_line,COMMAND_LINE_SIZE,0);
-+#ifdef BRCM_HAS_NOR
- 		sprintf(boot_command_line,"%s", "bmem=112M ubi.mtd=4 root=ubi0:rootfs rootfstype=ubifs rw console=ttyS0,115200n8 rootflags=sync slab_max_order=0 hwtypenum=0");
- 		sprintf(command_line,"%s", "bmem=112M ubi.mtd=4 root=ubi0:rootfs rootfstype=ubifs rw console=ttyS0,115200n8 rootflags=sync slab_max_order=0 hwtypenum=0");
-+#else
-+        sprintf(boot_command_line,"%s", "bmem=112M ubi.mtd=0 root=ubi0:rootfs rootfstype=ubifs rw console=ttyS0,115200n8 rootflags=sync slab_max_order=0 hwtypenum=0");
-+        sprintf(command_line,"%s", "bmem=112M ubi.mtd=0 root=ubi0:rootfs rootfstype=ubifs rw console=ttyS0,115200n8 rootflags=sync slab_max_order=0 hwtypenum=0");
-+
-+#endif
- 	}
- #endif
