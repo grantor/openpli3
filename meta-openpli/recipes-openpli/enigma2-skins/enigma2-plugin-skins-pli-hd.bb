@@ -21,6 +21,7 @@ PROVIDES = "${PN} font-valis-hd"
 
 SRC_URI =  "git://github.com/littlesat/skin-PLiHD.git;protocol=git \
 			file://skin.xml \
+			file://${MACHINE}.skin.xml \
 			"
 
 FILES_${PN} = "/usr/share/enigma2/"
@@ -35,7 +36,10 @@ do_install() {
 	install -d ${D}/usr/share
 	cp -rp ${S}/usr/share/* ${D}/usr/share/
 	chmod -R a+rX ${D}/usr/share/enigma2/
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "mediabox" ]; then
+
+	if [ "${MACHINE}" = "mediabox" ]; then
+		cp -rp ${WORKDIR}/${MACHINE}.skin.xml ${D}/usr/share/enigma2/PLi-HD/
+	else
 		cp -rp ${WORKDIR}/skin.xml ${D}/usr/share/enigma2/PLi-HD/
 	fi
 }
