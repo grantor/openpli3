@@ -21,7 +21,7 @@ PROVIDES = "${PN} font-valis-hd"
 
 SRC_URI =  "git://github.com/littlesat/skin-PLiHD.git;protocol=git \
 			file://skin.xml \
-			file://${MACHINE}.skin.xml \
+			file://mediabox.skin.xml \
 			"
 
 FILES_${PN} = "/usr/share/enigma2/"
