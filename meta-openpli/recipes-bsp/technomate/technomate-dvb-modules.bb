@@ -3,7 +3,7 @@ SECTION = "base"
 PRIORITY = "required"
 LICENSE = "CLOSED"
 
-SRCDATE = "20130520"
+SRCDATE = "20130529"
 KV = "3.5.3"
 PV = "${KV}+${SRCDATE}"
 PR = "r0"
@@ -40,11 +40,16 @@ do_install() {
     for i in `ls ${D}/lib/modules/${KV}/extra | grep \\.ko | sed -e 's/.ko//g'`; do
         echo $i _hwtype=\$hwtypenum >> ${D}/${sysconfdir}/modules-load.d/_${MACHINE}.conf
     done
+
 	if [ ! -d "${DEPLOY_DIR_IMAGE}" ]; then
 		mkdir -p ${DEPLOY_DIR_IMAGE}
+	fi
+
+	if [ "${MACHINE}" = "mediabox" ]; then
 		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
 		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
 		cp ${WORKDIR}/mediabox.splash.bmp ${DEPLOY_DIR_IMAGE}/mediabox.splash.bmp
+		cp ${WORKDIR}/mediabox.splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
 	else
 		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
 		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
@@ -52,6 +57,6 @@ do_install() {
 	fi
 }
 
-SRC_URI[md5sum] = "764f933f202eaa40b5afee4b5dd7ce58"
-SRC_URI[sha256sum] = "118b0eee0e897b2c1bc3ce0590676f81363a32db68c9bfda625e6a8c60b58d08"
+SRC_URI[md5sum] = "841ee3bd0a5116858ff7c8a6963f61e4"
+SRC_URI[sha256sum] = "994d0b3292c84d0024d19b56d49613000695e5532a21aaaf2fbcdeb7eec17b45"
 
