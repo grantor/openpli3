@@ -103,10 +103,7 @@ class AjaxController(BaseController):
 		box = {}
 		box['brand'] = "dmm"
 		if fileExists("/proc/stb/info/hwmodel"):
-			if model == "mediabox":			# mediabox brandname fix.
-				box['brand'] = "Jepsson"
-			else:
-				box['brand'] = "4D"
+			box['brand'] = "4D"
 		elif fileExists("/proc/stb/info/azmodel"):
 			box['brand'] = "azbox"
 		return { "box": box }
