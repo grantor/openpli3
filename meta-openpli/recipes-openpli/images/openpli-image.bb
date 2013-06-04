@@ -33,6 +33,7 @@ IMAGE_INSTALL = " \
 	openssl \
 	libcrypto-compat \
 	gst-plugins-ugly \
+	mtd-utils \
 	"
 
 OPTIONAL_PACKAGES ?= ""
