@@ -12,7 +12,7 @@ RCONFLICTS_${PN} = "technomate-dvb-modules"
 RREPLACES_${PN} = "technomate-dvb-modules"
 
 #SRC_URI = "http://opengit.homelinux.com/pub/OpenPLi3/drivers/bcmlinuxdvb_7335-${KV}-${SRCDATE}.tar.gz 
-SRC_URI = "http://en2.ath.cx/release/images/iqon/dev/bcmlinuxdvb_7335-${KV}-${SRCDATE}.tar.gz \
+SRC_URI = "http://en2.ath.cx/release/images/iqon/oedrivers/bcmlinuxdvb_7335-${KV}-${SRCDATE}.tar.gz \
 		file://cfe-${MACHINE}.bin \
 		file://splash.bmp \
 		file://mediabox.splash.bmp \
