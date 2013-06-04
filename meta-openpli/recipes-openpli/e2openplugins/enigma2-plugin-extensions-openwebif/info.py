@@ -66,12 +66,14 @@ def getInfo():
 	chipset = "unknown"
 	
 	if fileExists("/proc/stb/info/hwmodel"):
-		brand = "4D"
 		f = open("/proc/stb/info/hwmodel",'r')
 		model = f.readline().strip()
 		f.close()
 		if model == "mediabox":
 			model = "Mediabox HD LX-1"
+			brand = "Jepsson"
+		else:
+			brand = "4D"
 	elif fileExists("/proc/stb/info/azmodel"):
 		brand = "AZBOX"
 		f = open("/proc/stb/info/model",'r')
