@@ -71,7 +71,7 @@ def getInfo():
 		f.close()
 		if model == "mediabox":
 			model = "Mediabox HD LX-1"
-			brand = "Jepsson"
+			brand = "Jepssen"
 		else:
 			brand = "4D"
 	elif fileExists("/proc/stb/info/azmodel"):
