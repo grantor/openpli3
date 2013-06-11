@@ -3,7 +3,7 @@ LICENSE = "GPL"
 SECTION = "kernel"
 KV = "3.5.3"
 
-SRCDATE = "20121208"
+SRCDATE = "20130611"
 MACHINE_KERNEL_PR_append = ".5"
 
 SRC_URI[md5sum] = "536456dd7b0f797bf8ca50694991def1"
