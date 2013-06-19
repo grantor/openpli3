@@ -179,6 +179,7 @@ fakeroot do_rootfs () {
 
 		mkdir -p ${IMAGE_ROOTFS}/lib/modules/$KERNEL_VERSION
 		${TARGET_PREFIX}depmod -a -b ${IMAGE_ROOTFS} -F ${STAGING_KERNEL_DIR}/System.map-$KERNEL_VERSION $KERNEL_VERSION
+		tar xf ${DEPLOY_DIR_IMAGE}/modules-${KERNEL_VERSION}-* -C ${IMAGE_ROOTFS}/
 	fi
 
 	${IMAGE_PREPROCESS_COMMAND}
