@@ -213,11 +213,12 @@ insert_feed_uris () {
 rootfs_make_factory () { 
 	## remove ppanel info and server package info
 	## feed
-	FEEDS="3rd-party all arch mips32 opkg ${MACHINE}"
+	FEEDS="3rd-party all arch mips32el ${MACHINE}"
 
 	rm -rf ${IMAGE_ROOTFS}/etc/ppanels/
-	rm -rf ${IMAGE_ROOTFS}/etc/opkg/*
+	rm -rf ${IMAGE_ROOTFS}/etc/opkg/*feed.conf
 
+#	touch ${IMAGE_ROOTFS}/etc/opkg/opkg.conf
 	for feed in ${FEEDS}; do
 		touch ${IMAGE_ROOTFS}/etc/opkg/${feed}-feed.conf
 	done
