@@ -72,7 +72,7 @@ image: init
 	@echo 'Building image for $(MACHINE)'
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake openpli-enigma2-image
 
-factory:
+factory: init
 	@sed -i "/inherit/d" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
 	@sed -i "/x11-sato ssh-server-dropbear/a inherit image-factory" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
 	@echo 'Building image for $(MACHINE)'
