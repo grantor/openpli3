@@ -59,21 +59,21 @@ do_install () {
 		   ${D}${sysconfdir}/init.d
 	install -m 0644    ${WORKDIR}/rcS-default	${D}${sysconfdir}/default/rcS
 	install -m 0755    ${WORKDIR}/rc		${D}${sysconfdir}/init.d
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "mediabox" ]; then
-		cp ${WORKDIR}/profile ${D}${sysconfdir}/enigma2.profile
-		install -m 0755    ${WORKDIR}/rcS-tm		${D}${sysconfdir}/init.d/rcS
-	else
-		install -m 0755    ${WORKDIR}/rcS		${D}${sysconfdir}/init.d
-	fi
+
+	cp ${WORKDIR}/profile ${D}${sysconfdir}/enigma2.profile
+	install -m 0755    ${WORKDIR}/rcS-tm		${D}${sysconfdir}/init.d/rcS
+
 	install -m 0755    ${WORKDIR}/bootlogd.init     ${D}${sysconfdir}/init.d/bootlogd
 	ln -sf bootlogd ${D}${sysconfdir}/init.d/stop-bootlogd
 	install -d ${D}${sysconfdir}/rcS.d
 	ln -sf ../init.d/bootlogd ${D}${sysconfdir}/rcS.d/S07bootlogd
+
 	for level in 2 3 4 5; do
 		install -d ${D}${sysconfdir}/rc$level.d
 		ln -s ../init.d/stop-bootlogd ${D}${sysconfdir}/rc$level.d/S99stop-bootlogd
 	done
-	mv                 ${D}${base_sbindir}/init               ${D}${base_sbindir}/init.${BPN}
+
+	mv ${D}${base_sbindir}/init ${D}${base_sbindir}/init.${BPN}
 	mv ${D}${base_bindir}/mountpoint ${D}${base_bindir}/mountpoint.${BPN}
 	mv ${D}${base_bindir}/pidof ${D}${base_bindir}/pidof.${BPN}
 	mv ${D}${base_sbindir}/halt ${D}${base_sbindir}/halt.${BPN}
