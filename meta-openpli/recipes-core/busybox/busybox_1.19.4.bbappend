@@ -50,9 +50,7 @@ do_install_append() {
 	install -d ${D}${sysconfdir}/mdev
 	install -m 0755 ${WORKDIR}/mdev-mount.sh ${D}${sysconfdir}/mdev
 
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" ]; then
-		install -m 0755 ${WORKDIR}/mdev.conf ${D}/etc/
-	fi
+	install -m 0755 ${WORKDIR}/mdev.conf ${D}/etc/
 }
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${P}:"
