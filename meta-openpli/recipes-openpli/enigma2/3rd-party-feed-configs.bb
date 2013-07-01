@@ -7,15 +7,9 @@ FEEDS = "3rd-party"
 
 do_compile() {
     mkdir -p ${S}/${sysconfdir}/opkg
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "mediabox" -o "${MACHINE}" = "tm2tsuper" -o "${MACHINE}" = "tmnanosuper" -o "${MACHINE}" = "force1" ]; then
-		for feed in ${FEEDS}; do
-			echo "src/gz ${DISTRO_FEED_PREFIX}-${feed} ${DISTRO_FEED_URI_TM}/${feed}" > ${S}/${sysconfdir}/opkg/${feed}-feed.conf
-		done
-	else
-		for feed in ${FEEDS}; do
-			echo "src/gz ${DISTRO_FEED_PREFIX}-${feed} ${DISTRO_FEED_URI}/${feed}" > ${S}/${sysconfdir}/opkg/${feed}-feed.conf
-	    done
-	fi
+	for feed in ${FEEDS}; do
+		echo "src/gz ${DISTRO_FEED_PREFIX}-${feed} ${DISTRO_FEED_URI_TM}/${feed}" > ${S}/${sysconfdir}/opkg/${feed}-feed.conf
+	done
 }
 do_install () {
         install -d ${D}${sysconfdir}/opkg
