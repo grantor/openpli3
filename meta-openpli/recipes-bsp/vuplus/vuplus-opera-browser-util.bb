@@ -7,8 +7,8 @@ DEPENS = "tslib mpfr gmp "
 RDEPENS = "tslib-conf libts-1.0-0 libsysfs2 libgmp3 libmpfr1 "
 
 SRC_DATE = "20121128_0"
-SRC_URI = "http://code.vuplus.com/download/build.fc3abf29fb03f797e78f907928125638/embedded/opera-sdk-build-package/opera-hbbtv_${SRC_DATE}.tar.gz \
-		    file://setting.ini \
+SRC_URI = "http://opengit.homelinux.com/pub/OpenPLi3/src/opera-hbbtv_${SRC_DATE}.tar.gz \
+		   file://setting.ini \
 		   "
 
 PR = "r2_${SRC_DATE}"

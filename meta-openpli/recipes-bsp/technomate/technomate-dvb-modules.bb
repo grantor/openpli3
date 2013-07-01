@@ -3,7 +3,7 @@ SECTION = "base"
 PRIORITY = "required"
 LICENSE = "CLOSED"
 
-SRCDATE = "20130520"
+SRCDATE = "20130614"
 KV = "3.5.3"
 PV = "${KV}+${SRCDATE}"
 PR = "r0"
@@ -12,7 +12,7 @@ RCONFLICTS_${PN} = "technomate-dvb-modules"
 RREPLACES_${PN} = "technomate-dvb-modules"
 
 #SRC_URI = "http://opengit.homelinux.com/pub/OpenPLi3/drivers/bcmlinuxdvb_7335-${KV}-${SRCDATE}.tar.gz 
-SRC_URI = "http://en2.ath.cx/release/images/iqon/dev/bcmlinuxdvb_7335-${KV}-${SRCDATE}.tar.gz \
+SRC_URI = "http://en2.ath.cx/release/images/oedrivers/bcmlinuxdvb_7335-${KV}-${SRCDATE}.tar.gz \
 		file://cfe-${MACHINE}.bin \
 		file://splash.bmp \
 		file://mediabox.splash.bmp \
@@ -47,13 +47,16 @@ do_install() {
 
 	if [ "${MACHINE}" = "mediabox" ]; then
 		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
+		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
+		cp ${WORKDIR}/mediabox.splash.bmp ${DEPLOY_DIR_IMAGE}/mediabox.splash.bmp
 		cp ${WORKDIR}/mediabox.splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
 	else
 		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
 		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
+		cp ${WORKDIR}/mediabox.splash.bmp ${DEPLOY_DIR_IMAGE}/mediabox.splash.bmp
 	fi
 }
 
-SRC_URI[md5sum] = "764f933f202eaa40b5afee4b5dd7ce58"
-SRC_URI[sha256sum] = "118b0eee0e897b2c1bc3ce0590676f81363a32db68c9bfda625e6a8c60b58d08"
+SRC_URI[md5sum] = "747b123884a9cc5eeaafd88a2e41a1d9" 
+SRC_URI[sha256sum] = "d18f52a71ba36c3d34de8609a346992e90eae5ba0af44463652865c8234aefa8"
 

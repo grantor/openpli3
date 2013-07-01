@@ -62,4 +62,11 @@ then
 	ln -sf /var/tmp /tmp
 fi
 
+#
+# Update dynamic library cache, but only if ld.so.conf is present
+#
+if [ -e /etc/ld.so.conf ]; then
+	/sbin/ldconfig
+fi
+
 : exit 0

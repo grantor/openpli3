@@ -4,7 +4,7 @@
 MACHINE ?= ${subst /,,${subst build-,,${firstword ${dir ${wildcard build-*/}}}}}
 
 ifeq "$(MACHINE)" ""
-	MACHINE=ios200
+	MACHINE=tmtwinoe
 endif
 
 # Adjust according to the number CPU cores to use for parallel build.
@@ -67,8 +67,16 @@ initialize: init
 init: $(BBLAYERS) $(CONFFILES)
 
 image: init
+	@sed -i "/inherit/d" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
+	@sed -i "/x11-sato ssh-server-dropbear/a inherit image" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
 	@echo 'Building image for $(MACHINE)'
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake openpli-enigma2-image
+
+factory: init
+	@sed -i "/inherit/d" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
+	@sed -i "/x11-sato ssh-server-dropbear/a inherit image-factory" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
+	@echo 'Building image for $(MACHINE)'
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake openpli-factory-image
 
 update:
 	@echo 'Updating Git repositories...'
@@ -85,7 +93,7 @@ update:
 		echo "The openpli OE is now up-to-date."; \
 	fi
 
-.PHONY: all image init initialize update usage
+.PHONY: all image factory init initialize update usage
 
 BITBAKE_ENV_HASH := $(call hash, \
 	'BITBAKE_ENV_VERSION = "0"' \

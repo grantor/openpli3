@@ -63,6 +63,9 @@ case $ret in
 		opkg upgrade 2>&1 | tee /home/root/ipkgupgrade.log
 		/sbin/reboot
 		;;
+	43)
+		init 1
+		;;
 	64 | 65)		
 		echo ** factory reset
 		/usr/bin/enigma2_end.sh $ret

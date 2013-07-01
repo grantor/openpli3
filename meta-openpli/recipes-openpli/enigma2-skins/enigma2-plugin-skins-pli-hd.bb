@@ -38,7 +38,7 @@ do_install() {
 	chmod -R a+rX ${D}/usr/share/enigma2/
 
 	if [ "${MACHINE}" = "mediabox" ]; then
-		cp -rp ${WORKDIR}/${MACHINE}.skin.xml ${D}/usr/share/enigma2/PLi-HD/
+		cp -rp ${WORKDIR}/mediabox.skin.xml ${D}/usr/share/enigma2/PLi-HD/skin.xml
 	else
 		cp -rp ${WORKDIR}/skin.xml ${D}/usr/share/enigma2/PLi-HD/
 	fi
