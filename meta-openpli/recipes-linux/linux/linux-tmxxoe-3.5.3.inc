@@ -11,7 +11,8 @@ SRC_URI[sha256sum] = "cd11c19ddb2ea03f03a5bcb70c46137e6689a6450d3b47bde070be68bc
 
 LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${KV}/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-SRC_URI = "http://opengit.homelinux.com/pub/OpenPLi3/src/linux-${KV}-${SRCDATE}.tar.gz \
+#SRC_URI = "http://opengit.homelinux.com/pub/OpenPLi3/src/linux-${KV}-${SRCDATE}.tar.gz 
+SRC_URI = "http://en2.ath.cx/pub/OpenPLi3/src/linux-${KV}-${SRCDATE}.tar.gz \
         file://nfs-max-rwsize-8k.patch \
         file://${MACHINE}_defconfig"
 

@@ -43,6 +43,15 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-systemplugins-videomode \
 	enigma2-plugin-systemplugins-videotune \
 	\
+	enigma2-plugin-drivers-dvb-usb-af9015 \
+	enigma2-plugin-drivers-dvb-usb-as102 \
+	enigma2-plugin-drivers-dvb-usb-dib0700 \
+	enigma2-plugin-drivers-dvb-usb-dtt200u \
+	enigma2-plugin-drivers-dvb-usb-em28xx \
+	enigma2-plugin-drivers-dvb-usb-it913x \
+	enigma2-plugin-drivers-dvb-usb-pctv452e \
+	enigma2-plugin-drivers-dvb-usb-siano \
+	\
 	${@base_contains("MACHINE_FEATURES", "dvb-c", "enigma2-plugin-systemplugins-cablescan" , "", d)} \
 	${@base_contains("MACHINE_FEATURES", "frontprocessor", "enigma2-plugin-systemplugins-frontprocessorupgrade" , "", d)} \
 	${@base_contains("MACHINE_FEATURES", "hdmicec", "enigma2-plugin-systemplugins-hdmicec" , "", d)} \
@@ -78,9 +87,9 @@ ENIGMA2_OPTIONAL = " \
 	softcams-enigma2-meta \
 	task-openplugins \
 	${@base_contains("MACHINE_FEATURES", "blindscan-dvbs", "enigma2-plugin-systemplugins-satscan" , "", d)} \
-	dvb-usb-drivers-meta \
 	cdfs cdtextinfo \
 	meta-enigma2-dvdburn \
+	dvb-usb-drivers-meta \
 	"
 
 IMAGE_INSTALL += " \

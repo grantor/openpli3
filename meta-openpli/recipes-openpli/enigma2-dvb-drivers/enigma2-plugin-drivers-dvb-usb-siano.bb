@@ -1,4 +1,5 @@
 DESCRIPTION = "USB DVB driver for Siano chipset"
+PACKAGE_ARCH = "all"
 
 require conf/license/openpli-gplv2.inc
 
@@ -13,6 +14,6 @@ RDEPENDS_${PN} = " \
 	"
 
 PV = "1.0"
-PR = "r5"
+PR = "r6"
 
 ALLOW_EMPTY_${PN} = "1"
