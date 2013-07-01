@@ -41,7 +41,7 @@ do_install() {
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
 		find ${D}${PLUGINPATH}/ -name '*.pyo' -exec rm {} \;
 	fi
-	if [ "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
+	if [ "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "optimussos1" -o "${MACHINE}" = "optimussos2"]; then
 		cp -rp ${WORKDIR}/ajax.py ${D}${PLUGINPATH}/controllers/
 		cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
 		cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/controllers/models/
