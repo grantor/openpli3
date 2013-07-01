@@ -264,16 +264,11 @@ do_install_append() {
 		install -m 0755 ${WORKDIR}/enigma2_end.sh ${D}/usr/bin/
 		install -m 0755 ${WORKDIR}/enigma2_pre_start.sh ${D}/usr/bin/
 		install -m 0755 ${WORKDIR}/enigma2.sh ${D}/usr/bin/
-		if [ "${MACHINE}" = "mediabox" ]; then
-			install -m 0755 ${WORKDIR}/${MACHINE}.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png
-			install -m 0755 ${WORKDIR}/${MACHINE}.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold-configured.png
-		else
-			install -m 0755 ${WORKDIR}/input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/
-			install -m 0755 ${WORKDIR}/input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/
-		fi
 		install -m 0755 ${WORKDIR}/setup.xml ${D}/usr/share/enigma2/
+
 		ln -s /usr/bin/opkg ${D}/usr/bin/ipkg
 		ln -s /etc/tuxbox ${D}/var/tuxbox
+
 		cp ${WORKDIR}/var ${D}/etc/var.tar
 		cp ${WORKDIR}/menu-${MACHINE}.xml ${D}/usr/share/enigma2/menu.xml
 		cp ${WORKDIR}/keymap.xml ${D}/usr/share/enigma2/keymap.xml
@@ -281,6 +276,13 @@ do_install_append() {
 		mv ${WORKDIR}/def_inst ${D}/etc/.def_inst
 		cp ${WORKDIR}/e2settings ${D}/etc/.e2settings.tar
 		cp ${WORKDIR}/satellites.xml ${D}/etc/tuxbox
+	fi
+	if [ "${MACHINE}" = "mediabox" ];then
+        install -m 0755 ${WORKDIR}/${MACHINE}.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png
+        install -m 0755 ${WORKDIR}/${MACHINE}.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold-configured.png
+	else
+		install -m 0755 ${WORKDIR}/input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/
+		install -m 0755 ${WORKDIR}/input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/
 	fi
 }
 
