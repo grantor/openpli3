@@ -7,6 +7,8 @@ DVBPROVIDER ?= "kernel"
 
 RDEPENDS_${PN} = " \
 	firmware-dvb-usb-s660 \
+	firmware-dvb-usb-dw2102 \
+	firmware-dvb-usb-dw2104 \
 	"
 
 PV = "1.0"
