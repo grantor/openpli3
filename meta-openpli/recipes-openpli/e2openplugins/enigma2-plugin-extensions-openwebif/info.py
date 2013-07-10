@@ -72,6 +72,12 @@ def getInfo():
 		if model == "mediabox":
 			model = "Mediabox HD LX-1"
 			brand = "Jepssen"
+		elif model == "optimussos1":
+			model = "Optimuss OS1"
+			brand = "oem"
+		elif model == "optimussos2":
+			model = "Optimuss OS2"
+			brand = "oem"
 		else:
 			brand = "4D"
 	elif fileExists("/proc/stb/info/azmodel"):

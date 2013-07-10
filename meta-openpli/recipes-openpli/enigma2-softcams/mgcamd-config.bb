@@ -6,9 +6,7 @@ PN = "enigma2-plugin-softcams-mgcamd-config"
 #PV = "1.30d"
 PR = "r3"
 
-#SRC_URI = "http://opengit.homelinux.com/pub/OpenPLi/src/mgcamd-config-${PV}.tar.gz"
-SRC_URI = "http://opengit.homelinux.com/pub/OpenPLi3/src/mgcamd-config.tar.gz"
-#SRC_URI = "http://192.168.1.158/pub/OpenPLi/src/mgcamd-config.tar.gz"
+SRC_URI = "http://en2.ath.cx/pub/OpenPLi3/src/mgcamd-config.tar.gz"
 
 S = "${WORKDIR}"
 

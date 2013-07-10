@@ -1,4 +1,4 @@
-require openpli-image.bb
+require factory-image.bb
 
 WIFI_DRIVERS = " \
 	firmware-carl9170 \
@@ -19,66 +19,6 @@ WIFI_DRIVERS = " \
 	kernel-module-rtl8187 \
 	kernel-module-zd1211rw \
 	rtl8192cu \
-	\
-	kernel-module-dvb-usb-dw2102 \
-	firmware-carl9170 \
-	firmware-af9005 \
-	firmware-as102-data1-st \
-	firmware-as102-data2-st \
-	firmware-atheros-ar9271 \
-	firmware-drx397xd.a2 \
-	firmware-drx397xd.b1 \
-	firmware-dvb-fe-af9013 \
-	firmware-dvb-fe-ds3000 \
-	firmware-dvb-fe-tda10071 \
-	firmware-dvb-fe-xc5000-1.6.114 \
-	firmware-dvb-nova-12mhz-b0 \
-	firmware-dvb-siano \
-	firmware-dvb-fe-xc5000-1.1 \
-	firmware-dvb-fe-xc5000-1.6.114 \
-	firmware-dvb-usb-af9015 \
-	firmware-dvb-usb-af9035-01 \
-	firmware-dvb-usb-bluebird-01 \
-	firmware-dvb-usb-bluebird-02 \
-	firmware-dvb-usb-dib0700-01 \
-	firmware-dvb-usb-dib0700-03-pre1 \
-	firmware-dvb-usb-dib0700-1.10 \
-	firmware-dvb-usb-dib0700-1.20 \
-	firmware-dvb-usb-dibusb-5.0.0.11 \
-	firmware-dvb-usb-dibusb-6.0.0.8 \
-	firmware-dvb-usb-dibusb-an2235-01 \
-	firmware-dvb-usb-digitv-02 \
-	firmware-dvb-usb-digivox-02 \
-	firmware-dvb-usb-dposh-01 \
-	firmware-dvb-usb-dtt200u-01 \
-	firmware-dvb-usb-it9135 \
-	firmware-dvb-usb-it913x \
-	firmware-dvb-usb-megasky-02 \
-	firmware-dvb-usb-s660 \
-	firmware-dvb-usb-umt-010-02 \
-	firmware-dvb-usb-wt220u-02 \
-	firmware-dvb-usb-wt220u-fc03 \
-	firmware-dvb-usb-wt220u-miglia-01 \
-	firmware-dvb-usb-wt220u-zl0353-01 \
-	firmware-htc7010 \
-	firmware-htc9271 \
-	firmware-isdbt-nova-12mhz-b0 \
-	firmware-marvell-sd8688 \
-	firmware-rt2870 \
-	firmware-rt73 \
-	firmware-rtl8712u \
-	firmware-sms1xxx-hcw-114xxx-cmmb-01 \
-	firmware-sms1xxx-hcw-55xxx-dvbt-01 \
-	firmware-sms1xxx-hcw-55xxx-dvbt-02 \
-	firmware-sms1xxx-hcw-55xxx-dvbt-03 \
-	firmware-sms1xxx-hcw-55xxx-isdbt-02 \
-	firmware-sms1xxx-hcw-55xxx-isdbt-03 \
-	firmware-sms1xxx-nova-a-dvbt-01 \
-	firmware-sms1xxx-nova-b-dvbt-01 \
-	firmware-xc3028-dvico-au-01 \
-	firmware-xc3028l-v36 \
-	firmware-xc3028-v27 \
-	firmware-zd1211 \
 	"
 
 ENIGMA2_PLUGINS = " \
@@ -87,12 +27,7 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-extensions-graphmultiepg \
 	enigma2-plugin-extensions-mediascanner \
 	enigma2-plugin-extensions-openwebif \
-	enigma2-plugin-extensions-permanenttimeshift \
-	enigma2-plugin-extensions-ppanel \
 	enigma2-plugin-extensions-shoutcast \
-	\
-	enigma2-plugin-pli-softcamsetup \
-	\
 	enigma2-plugin-systemplugins-fastscan \
 	enigma2-plugin-systemplugins-hotplug \
 	enigma2-plugin-systemplugins-networkbrowser \
@@ -102,16 +37,6 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-systemplugins-softwaremanager \
 	enigma2-plugin-systemplugins-videomode \
 	enigma2-plugin-systemplugins-videotune \
-	\
-	enigma2-plugin-drivers-dvb-usb-af9015 \
-	enigma2-plugin-drivers-dvb-usb-as102 \
-	enigma2-plugin-drivers-dvb-usb-dib0700 \
-	enigma2-plugin-drivers-dvb-usb-dtt200u \
-	enigma2-plugin-drivers-dvb-usb-em28xx \
-	enigma2-plugin-drivers-dvb-usb-it913x \
-	enigma2-plugin-drivers-dvb-usb-pctv452e \
-	enigma2-plugin-drivers-dvb-usb-siano \
-	enigma2-plugin-drivers-dvb-usb-dib0700 \
 	\
 	${@base_contains("MACHINE_FEATURES", "dvb-c", "enigma2-plugin-systemplugins-cablescan" , "", d)} \
 	${@base_contains("MACHINE_FEATURES", "frontprocessor", "enigma2-plugin-systemplugins-frontprocessorupgrade" , "", d)} \
@@ -130,7 +55,6 @@ DEPENDS += " \
 	"
 
 ENIGMA2_OPTIONAL = " \
-	channelsettings-enigma2-meta \
 	enigma2-pliplugins \
 	enigma2-plugin-drivers-usbserial \
 	enigma2-plugin-extensions-ambx \
@@ -148,9 +72,9 @@ ENIGMA2_OPTIONAL = " \
 	softcams-enigma2-meta \
 	task-openplugins \
 	${@base_contains("MACHINE_FEATURES", "blindscan-dvbs", "enigma2-plugin-systemplugins-satscan" , "", d)} \
+	dvb-usb-drivers-meta \
 	cdfs cdtextinfo \
 	meta-enigma2-dvdburn \
-	dvb-usb-drivers-meta \
 	"
 
 IMAGE_INSTALL += " \
@@ -173,4 +97,4 @@ OPTIONAL_PACKAGES += " \
 	${ENIGMA2_OPTIONAL} \
 	"
 
-export IMAGE_BASENAME = "openpli-enigma2"
+export IMAGE_BASENAME = "openpli-factory"

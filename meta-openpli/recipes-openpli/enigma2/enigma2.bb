@@ -160,12 +160,13 @@ SRC_URI = " git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRAN
 			file://def_ins \
 			file://input_rcold-configured.png \
 			file://input_rcold.png \
-			file://${MACHINE}.input_rcold.png \
-			file://${MACHINE}.input_rcold-configured.png \
 			file://menu-${MACHINE}.xml \
 			file://setup.xml \
 			file://e2settings \
 			file://satellites.xml \
+			file://mediabox.var \
+			file://mediabox.input_rcold-configured.png \
+			file://mediabox.input_rcold.png \
 		   "
 
 S = "${WORKDIR}/git"
@@ -227,10 +228,8 @@ RADIOMVI = "radio-hd.mvi"
 
 ## only technomate model excute "do_configure_prepend"
 do_configure_prepend() {
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" "${MACHINE}" = "mediabox" ]; then
 		cp ${WORKDIR}/keymap.xml ${S}/data
 		cp ${WORKDIR}/menu-${MACHINE}.xml ${S}/data/menu.xml
-	fi
 }
 
 do_openpli_preinstall() {
@@ -255,32 +254,33 @@ addtask openpli_branding after do_unpack before do_configure
 do_install_append() {
 	install -d ${D}/usr/share/keymaps
 	find ${D}/usr/lib/enigma2/python/ -name '*.pyc' -exec rm {} \;
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "mediabox" ]; then
-		install -d 0755 ${D}/usr/bin/
-		install -d 0755 ${D}/etc/tuxbox/
-		install -d 0755 ${D}/etc/enigma2/
-		install -d 0755 ${D}/var/
-		install -d 0755 ${D}/usr/share/enigma2/skin_default/icons/
-		install -m 0755 ${WORKDIR}/enigma2_end.sh ${D}/usr/bin/
-		install -m 0755 ${WORKDIR}/enigma2_pre_start.sh ${D}/usr/bin/
-		install -m 0755 ${WORKDIR}/enigma2.sh ${D}/usr/bin/
-		if [ "${MACHINE}" = "mediabox" ]; then
-			install -m 0755 ${WORKDIR}/${MACHINE}.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png
-			install -m 0755 ${WORKDIR}/${MACHINE}.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold-configured.png
-		else
-			install -m 0755 ${WORKDIR}/input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/
-			install -m 0755 ${WORKDIR}/input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/
-		fi
-		install -m 0755 ${WORKDIR}/setup.xml ${D}/usr/share/enigma2/
-		ln -s /usr/bin/opkg ${D}/usr/bin/ipkg
-		ln -s /etc/tuxbox ${D}/var/tuxbox
-		cp ${WORKDIR}/var ${D}/etc/var.tar
-		cp ${WORKDIR}/menu-${MACHINE}.xml ${D}/usr/share/enigma2/menu.xml
-		cp ${WORKDIR}/keymap.xml ${D}/usr/share/enigma2/keymap.xml
-		tar xf ${WORKDIR}/def_ins -C ${WORKDIR}/
-		mv ${WORKDIR}/def_inst ${D}/etc/.def_inst
-		cp ${WORKDIR}/e2settings ${D}/etc/.e2settings.tar
-		cp ${WORKDIR}/satellites.xml ${D}/etc/tuxbox
+
+	install -d 0755 ${D}/usr/bin/
+	install -d 0755 ${D}/etc/tuxbox/
+	install -d 0755 ${D}/etc/enigma2/
+	install -d 0755 ${D}/var/
+	install -d 0755 ${D}/usr/share/enigma2/skin_default/icons/
+	install -m 0755 ${WORKDIR}/enigma2_end.sh ${D}/usr/bin/
+	install -m 0755 ${WORKDIR}/enigma2_pre_start.sh ${D}/usr/bin/
+	install -m 0755 ${WORKDIR}/enigma2.sh ${D}/usr/bin/
+	install -m 0755 ${WORKDIR}/setup.xml ${D}/usr/share/enigma2/
+	ln -s /usr/bin/opkg ${D}/usr/bin/ipkg
+	ln -s /etc/tuxbox ${D}/var/tuxbox
+	cp ${WORKDIR}/var ${D}/etc/var.tar
+	cp ${WORKDIR}/menu-${MACHINE}.xml ${D}/usr/share/enigma2/menu.xml
+	cp ${WORKDIR}/keymap.xml ${D}/usr/share/enigma2/keymap.xml
+	tar xf ${WORKDIR}/def_ins -C ${WORKDIR}/
+	mv ${WORKDIR}/def_inst ${D}/etc/.def_inst
+	cp ${WORKDIR}/e2settings ${D}/etc/.e2settings.tar
+	cp ${WORKDIR}/satellites.xml ${D}/etc/tuxbox
+
+	if [ "${MACHINE}" = "mediabox" ];then
+        install -m 0755 ${WORKDIR}/mediabox.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png
+        install -m 0755 ${WORKDIR}/mediabox.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold-configured.png
+		cp -rf ${WORKDIR}/mediabox.var ${D}/etc/mediabox.var	# factory image.
+	else
+		install -m 0755 ${WORKDIR}/input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/
+		install -m 0755 ${WORKDIR}/input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/
 	fi
 }
 
