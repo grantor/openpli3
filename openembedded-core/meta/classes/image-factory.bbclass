@@ -232,6 +232,11 @@ rootfs_make_factory () {
 	sed -n '/cam_setup/,/\/menu/!p' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml > ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new
 	cp ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
 	rm -rf ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new 
+
+## factory ipkg.
+	if [ "${MACHINE}" == "mediabox" ];then
+		cp ${IMAGE_ROOTFS}/etc/mediabox.var ${IMAGE_ROOTFS}/etc/var.tar
+	fi
 }
 
 log_check() {
