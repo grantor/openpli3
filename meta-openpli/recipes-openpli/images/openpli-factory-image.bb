@@ -27,7 +27,6 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-extensions-graphmultiepg \
 	enigma2-plugin-extensions-mediascanner \
 	enigma2-plugin-extensions-openwebif \
-	enigma2-plugin-extensions-permanenttimeshift \
 	enigma2-plugin-extensions-shoutcast \
 	enigma2-plugin-systemplugins-fastscan \
 	enigma2-plugin-systemplugins-hotplug \

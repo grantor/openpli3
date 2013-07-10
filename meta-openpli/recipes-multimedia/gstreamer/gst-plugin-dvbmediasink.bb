@@ -6,7 +6,6 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=7fbc338309ac38fefcd64b04bb903e34"
 
 DEPENDS = "gstreamer gst-plugins-base libdca"
 
-#SRC_URI = "git://192.168.1.158/openpli.git.sourceforge.net.gitroot.openpli.${PN};protocol=git"
 SRC_URI = "git://openpli.git.sourceforge.net/gitroot/openpli/${PN};protocol=git"
 
 S = "${WORKDIR}/git"

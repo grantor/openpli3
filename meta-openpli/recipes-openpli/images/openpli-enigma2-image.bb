@@ -54,7 +54,6 @@ WIFI_DRIVERS = " \
 	firmware-dvb-usb-it9135 \
 	firmware-dvb-usb-it913x \
 	firmware-dvb-usb-megasky-02 \
-	firmware-dvb-usb-terratec-h5-drxk \
 	firmware-dvb-usb-s660 \
 	firmware-dvb-usb-umt-010-02 \
 	firmware-dvb-usb-wt220u-02 \
@@ -67,7 +66,6 @@ WIFI_DRIVERS = " \
 	firmware-marvell-sd8688 \
 	firmware-rt2870 \
 	firmware-rt73 \
-	firmware-rtl8192cu \
 	firmware-rtl8712u \
 	firmware-sms1xxx-hcw-114xxx-cmmb-01 \
 	firmware-sms1xxx-hcw-55xxx-dvbt-01 \
@@ -105,6 +103,7 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-systemplugins-videomode \
 	enigma2-plugin-systemplugins-videotune \
 	\
+	enigma2-plugin-drivers-dvb-usb-af9015 \
 	enigma2-plugin-drivers-dvb-usb-as102 \
 	enigma2-plugin-drivers-dvb-usb-dib0700 \
 	enigma2-plugin-drivers-dvb-usb-dtt200u \

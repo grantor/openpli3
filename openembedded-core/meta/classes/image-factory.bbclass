@@ -24,20 +24,20 @@ FEATURE_INSTALL = "${@' '.join(oe.packagegroup.required_packages(oe.data.typed_v
 FEATURE_INSTALL_OPTIONAL = "${@' '.join(oe.packagegroup.optional_packages(oe.data.typed_value('IMAGE_FEATURES', d), d))}"
 
 # packages to install from features, excluding dev/dbg/doc
-NORMAL_FEATURE_INSTALL = "${@' '.join(oe.packagegroup.required_packages(normal_groups(d), d))}"
-NORMAL_FEATURE_INSTALL_OPTIONAL = "${@' '.join(oe.packagegroup.optional_packages(normal_groups(d), d))}"
+NORMAL_FEATURE_INSTALL = "${@' '.join(oe.packagegroup.required_packages(normal_groups1(d), d))}"
+NORMAL_FEATURE_INSTALL_OPTIONAL = "${@' '.join(oe.packagegroup.optional_packages(normal_groups1(d), d))}"
 
-def normal_groups(d):
+def normal_groups1(d):
     """Return all the IMAGE_FEATURES, with the exception of our special package groups"""
     extras = set(['dev-pkgs', 'doc-pkgs', 'dbg-pkgs'])
     features = set(oe.data.typed_value('IMAGE_FEATURES', d))
     return features.difference(extras)
 
-def normal_pkgs_to_install(d):
+def normal_pkgs_to_install1(d):
     import oe.packagedata
 
     to_install = oe.data.typed_value('IMAGE_INSTALL', d)
-    features = normal_groups(d)
+    features = normal_groups1(d)
     required = list(oe.packagegroup.required_packages(features, d))
     optional = list(oe.packagegroup.optional_packages(features, d))
     all_packages = to_install + required + optional
@@ -46,11 +46,11 @@ def normal_pkgs_to_install(d):
 
     return all_packages + recipes
 
-PACKAGE_GROUP_dbg-pkgs = "${@' '.join('%s-dbg' % pkg for pkg in normal_pkgs_to_install(d))}"
+PACKAGE_GROUP_dbg-pkgs = "${@' '.join('%s-dbg' % pkg for pkg in normal_pkgs_to_install1(d))}"
 PACKAGE_GROUP_dbg-pkgs[optional] = "1"
-PACKAGE_GROUP_dev-pkgs = "${@' '.join('%s-dev' % pkg for pkg in normal_pkgs_to_install(d))}"
+PACKAGE_GROUP_dev-pkgs = "${@' '.join('%s-dev' % pkg for pkg in normal_pkgs_to_install1(d))}"
 PACKAGE_GROUP_dev-pkgs[optional] = "1"
-PACKAGE_GROUP_doc-pkgs = "${@' '.join('%s-doc' % pkg for pkg in normal_pkgs_to_install(d))}"
+PACKAGE_GROUP_doc-pkgs = "${@' '.join('%s-doc' % pkg for pkg in normal_pkgs_to_install1(d))}"
 PACKAGE_GROUP_doc-pkgs[optional] = "1"
 
 # "export IMAGE_BASENAME" not supported at this time
@@ -102,7 +102,7 @@ python () {
 # If neither are specified then the default name of files/device_table-minimal.txt
 # is searched for in the BBPATH (same as the old version.)
 #
-def get_devtable_list(d):
+def get_devtable_list1(d):
     devtable = d.getVar('IMAGE_DEVICE_TABLE', True)
     if devtable != None:
         return devtable
@@ -152,7 +152,7 @@ fakeroot do_rootfs () {
     # If "${IMAGE_ROOTFS}/dev" exists, then the device had been made by
     # the previous build
 	if [ "${USE_DEVFS}" != "1" -a ! -r "${IMAGE_ROOTFS}/dev" ]; then
-		for devtable in ${@get_devtable_list(d)}; do
+		for devtable in ${@get_devtable_list1(d)}; do
             # Always return ture since there maybe already one when use the
             # incremental image generation
 			makedevs -r ${IMAGE_ROOTFS} -D $devtable
@@ -223,13 +223,15 @@ rootfs_make_factory () {
 		touch ${IMAGE_ROOTFS}/etc/opkg/${feed}-feed.conf
 	done
 
-	touch ${IMAGE_ROOTFS}/etc/.run_factory_test
+## NOTE : first release must booting enigma2.
+#	touch ${IMAGE_ROOTFS}/etc/.run_factory_test
 
 	## Softcam menu remove.
-
-	sed -n '/SoftCam/,/\/menu/!p' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml > ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new
-	mv ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
-
+	sed -i '/recording_setup/d' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
+	sed -i '/RecordPathsSettings/d' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
+	sed -n '/cam_setup/,/\/menu/!p' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml > ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new
+	cp ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
+	rm -rf ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new 
 }
 
 log_check() {
