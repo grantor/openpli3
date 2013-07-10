@@ -165,6 +165,8 @@ SRC_URI = " git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRAN
 			file://e2settings \
 			file://satellites.xml \
 			file://mediabox.var \
+			file://mediabox.input_rcold-configured.png \
+			file://mediabox.input_rcold.png \
 		   "
 
 S = "${WORKDIR}/git"
