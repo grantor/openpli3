@@ -15,6 +15,7 @@ SRC_URI = "http://en2.ath.cx/release/images/oedrivers/bcmlinuxdvb_7335-${KV}-${S
 		file://cfe-${MACHINE}.bin \
 		file://splash.bmp \
 		file://mediabox.splash.bmp \
+		file://optimuss.splash.bmp \
 "
 
 S = "${WORKDIR}"
