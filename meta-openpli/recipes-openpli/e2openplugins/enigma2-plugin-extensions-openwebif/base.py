@@ -148,6 +148,12 @@ class BaseController(resource.Resource):
 			ret["remote"] = "ios300hd"
 		elif ret["box"] == "ios100hd":
 			ret["remote"] = "ios100hd"
+		elif ret["box"] == "tm2tsuper":
+			ret["remote"] = "tm2tsuper"
+		elif ret["box"] == "tmnanosuper":
+			ret["remote"] = "tmnanosuper"
+		elif ret["box"] == "force1":
+			ret["remote"] = "force1"
 		elif ret["box"] == "tmsingle" or ret["box"] == "tmsinglesr" or ret["box"] == "tmsinglemini" or ret["box"] == "tmsingleminisr" or ret["box"] == "tmsingleoe":
 			ret["remote"] = "tmsingle"
 		elif ret["box"] == "mediabox":
@@ -158,6 +164,10 @@ class BaseController(resource.Resource):
 			ret["remote"] = "tmtwinoe"
 		elif ret["box"] == "tmnanooe":
 			ret["remote"] = "tmnanooe"
+		elif ret["box"] == "optimussos1":
+			ret["remote"] = "optimussos1"
+		elif ret["box"] == "optimussos2":
+			ret["remote"] = "optimussos2"
 		elif ret["box"] == "ultimo":
 			ret["remote"] = "vu_ultimo"
 		elif ret["box"] == "et9x00" or ret["box"] == "et9000" or ret["box"] == "et9200":

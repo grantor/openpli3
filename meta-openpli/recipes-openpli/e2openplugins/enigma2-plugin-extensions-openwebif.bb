@@ -31,33 +31,31 @@ PLUGINPATH = "/usr/lib/enigma2/python/Plugins/Extensions/${MODULE}"
 do_install() {
 	install -d ${D}${PLUGINPATH}
 	cp -rp ${S}/plugin/* ${D}${PLUGINPATH}
+	cp -rp ${WORKDIR}/ajax.py ${D}${PLUGINPATH}/controllers/
+	cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
+	cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/controllers/models/
+	find ${D}${PLUGINPATH}/ -name '*.pyo' -exec rm {} \;
 
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "tmnanooe" ]; then
-		cp -rp ${WORKDIR}/ajax.py ${D}${PLUGINPATH}/controllers/
-		cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
-		cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/controllers/models/
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "tmnanosuper" -o "${MACHINE}" = "tm2tsuper" -o "${MACHINE}" = "force1" ]; then
 		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/
 		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
-		find ${D}${PLUGINPATH}/ -name '*.pyo' -exec rm {} \;
-	fi
-	if [ "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "optimussos1" -o "${MACHINE}" = "optimussos2"]; then
-		cp -rp ${WORKDIR}/ajax.py ${D}${PLUGINPATH}/controllers/
-		cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
-		cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/controllers/models/
+	elif [ "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "optimussos1" -o "${MACHINE}" = "optimussos2"]; then
 		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/${MACHINE}hd.jpg
 		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/${MACHINE}hd.png
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/${MACHINE}hd.html
-		find ${D}${PLUGINPATH}/ -name '*.pyo' -exec rm {} \;
-	fi
-	if [ "${MACHINE}" = "mediabox" ]; then
-		cp -rp ${WORKDIR}/ajax.py ${D}${PLUGINPATH}/controllers/
-		cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
-		cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/controllers/models/
+	elif [ "${MACHINE}" = "mediabox" ]; then
 		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/Mediabox\ HD\ LX-1.jpg
 		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
-		find ${D}${PLUGINPATH}/ -name '*.pyo' -exec rm {} \;
+	elif [ "${MACHINE}" = "optimussos1" ]; then
+		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/Optimuss\ OS1.jpg
+		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
+		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
+	elif [ "${MACHINE}" = "optimussos2" ]; then
+		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/Optimuss\ OS2.jpg
+		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
+		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
 	fi
 }
 

@@ -148,7 +148,6 @@ PKGV = "2.7+git${GITPKGV}"
 PR = "r42"
 
 ENIGMA2_BRANCH ?= "master"
-#SRC_URI = "git://openpli.git.sourceforge.net/gitroot/openpli/enigma2;protocol=git;branch=${ENIGMA2_BRANCH}"
 SRC_URI = " git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRANCH} \
 		    file://keymap.xml \
 			file://${MACHINE}.keymap.xml \
@@ -158,15 +157,21 @@ SRC_URI = " git://github.com/pli3/enigma2.git;protocol=git;branch=${ENIGMA2_BRAN
 			file://restore.sh \
 			file://var \
 			file://def_ins \
+			file://ios.input_rcold-configured.png \
+			file://ios.input_rcold.png \
+			file://optimuss.input_rcold-configured.png \
+			file://optimuss.input_rcold.png \
 			file://input_rcold-configured.png \
 			file://input_rcold.png \
+			file://mediabox.input_rcold-configured.png \
+			file://mediabox.input_rcold.png \
 			file://menu-${MACHINE}.xml \
 			file://setup.xml \
 			file://e2settings \
 			file://satellites.xml \
 			file://mediabox.var \
 			file://mediabox.input_rcold-configured.png \
-			file://mediabox.input_rcold.png \
+			file://factory.var \
 		   "
 
 S = "${WORKDIR}/git"
@@ -267,17 +272,24 @@ do_install_append() {
 	ln -s /usr/bin/opkg ${D}/usr/bin/ipkg
 	ln -s /etc/tuxbox ${D}/var/tuxbox
 	cp ${WORKDIR}/var ${D}/etc/var.tar
+	cp ${WORKDIR}/factory.var ${D}/etc/factory.var.tar
 	cp ${WORKDIR}/menu-${MACHINE}.xml ${D}/usr/share/enigma2/menu.xml
 	cp ${WORKDIR}/keymap.xml ${D}/usr/share/enigma2/keymap.xml
 	tar xf ${WORKDIR}/def_ins -C ${WORKDIR}/
 	mv ${WORKDIR}/def_inst ${D}/etc/.def_inst
 	cp ${WORKDIR}/e2settings ${D}/etc/.e2settings.tar
 	cp ${WORKDIR}/satellites.xml ${D}/etc/tuxbox
+	cp -rf ${WORKDIR}/mediabox.var ${D}/etc/mediabox.var # factory image
 
 	if [ "${MACHINE}" = "mediabox" ];then
         install -m 0755 ${WORKDIR}/mediabox.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png
         install -m 0755 ${WORKDIR}/mediabox.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold-configured.png
-		cp -rf ${WORKDIR}/mediabox.var ${D}/etc/mediabox.var	# factory image.
+	elif [ "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
+		install -m 0755 ${WORKDIR}/ios.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold-configured.png
+		install -m 0755 ${WORKDIR}/ios.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png
+	elif [ "${MACHINE}" = "optimussos1" -o "${MACHINE}" = "optimussos2" ];then
+		install -m 0755 ${WORKDIR}/optimuss.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold-configured.png
+		install -m 0755 ${WORKDIR}/optimuss.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png
 	else
 		install -m 0755 ${WORKDIR}/input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/
 		install -m 0755 ${WORKDIR}/input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/

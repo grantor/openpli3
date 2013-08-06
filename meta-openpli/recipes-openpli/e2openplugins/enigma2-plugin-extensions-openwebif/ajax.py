@@ -81,6 +81,10 @@ class AjaxController(BaseController):
 			model = "et5x00"
 		elif model == "mediabox": 
 			model = "Mediabox HD LX-1"
+		elif model == "optimussos1":
+			model = "Optimuss OS1"
+		elif model == "optimussos2":
+			model = "Optimuss OS2"
 		elif model == "et4000" :
 			model = "et4x00"
 		elif model == "xp1000" :
