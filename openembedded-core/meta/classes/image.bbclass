@@ -181,6 +181,9 @@ fakeroot do_rootfs () {
 		${TARGET_PREFIX}depmod -a -b ${IMAGE_ROOTFS} -F ${STAGING_KERNEL_DIR}/System.map-$KERNEL_VERSION $KERNEL_VERSION
 		tar xf ${DEPLOY_DIR_IMAGE}/modules-${KERNEL_VERSION}-* -C ${IMAGE_ROOTFS}/
 	fi
+	
+	copy_model_splash_image
+	remove_gabage_file
 
 	${IMAGE_PREPROCESS_COMMAND}
 
@@ -189,6 +192,15 @@ fakeroot do_rootfs () {
 	${IMAGE_POSTPROCESS_COMMAND}
 	
 	${MACHINE_POSTPROCESS_COMMAND}
+}
+
+copy_model_splash_image () {
+	cp ${DEPLOY_DIR_IMAGE}/${MACHINE}.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
+}
+
+remove_gabage_file () {
+	rm -rf ${IMAGE_ROOFS}/etc/factory.var
+	rm -rf ${IMAGE_ROOTFS}/etc/mediabox.var		# delete gabage file.
 }
 
 insert_feed_uris () {
