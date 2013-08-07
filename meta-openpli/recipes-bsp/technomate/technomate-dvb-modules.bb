@@ -3,7 +3,9 @@ SECTION = "base"
 PRIORITY = "required"
 LICENSE = "CLOSED"
 
-SRCDATE = "20130719"
+# Not Delete Under Line
+# driverdate
+SRCDATE = "20130807"
 KV = "3.5.3"
 PV = "${KV}+${SRCDATE}"
 PR = "r0"
