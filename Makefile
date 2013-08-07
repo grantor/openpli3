@@ -4,7 +4,7 @@
 MACHINE ?= ${subst /,,${subst build-,,${firstword ${dir ${wildcard build-*/}}}}}
 
 ifeq "$(MACHINE)" ""
-	MACHINE=tmtwinoe
+	MACHINE=ios200
 endif
 
 # Adjust according to the number CPU cores to use for parallel build.
@@ -83,7 +83,7 @@ image: init update
 	@sed -i "/sha256sum/d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/SRCDATE = /d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/driverdate/a SRCDATE = "'$(DATE)'"" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
-	@sed -i "/NOTE/a SRC_URI = \"http://en2.ath.cx/release/images/oedrivers/bcmlinuxdvb_7335-\$\{KV}-\$\{SRCDATE}.tar.gz \\\\" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
+	@sed -i "/NOTE/a SRC_URI = \"http://en2.ath.cx/release/images/oedrivers/bcmlinuxdvb_7335-\$$\{KV}-\$$\{SRCDATE}.tar.gz \\\\" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@echo "SRC_URI[md5sum] = "'$(CI_DRV_MD5SUM)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@echo "SRC_URI[sha256sum] = "'$(CI_DRV_SHA256SUM)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/inherit/d" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
@@ -97,7 +97,7 @@ ci-image: init update
 	@sed -i "/sha256sum/d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/SRCDATE = /d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/driverdate/a SRCDATE = "'$(CI_DATE)'"" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
-	@sed -i "/NOTE/a SRC_URI = \"http://en2.ath.cx/release/images/oedrivers/ci/bcmlinuxdvbci_7335-\$\{KV}-\$\{SRCDATE}.tar.gz \\\\" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
+	@sed -i "/NOTE/a SRC_URI = \"http://en2.ath.cx/release/images/oedrivers/ci/bcmlinuxdvbci_7335-\$$\{KV}-\$$\{SRCDATE}.tar.gz \\\\" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@echo "SRC_URI[md5sum] = "'$(DRV_MD5SUM)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@echo "SRC_URI[sha256sum] = "'$(DRV_SHA256SUM)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/inherit/d" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
