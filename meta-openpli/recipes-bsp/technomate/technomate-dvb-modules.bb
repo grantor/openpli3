@@ -11,7 +11,9 @@ PR = "r0"
 RCONFLICTS_${PN} = "technomate-dvb-modules"
 RREPLACES_${PN} = "technomate-dvb-modules"
 
-SRC_URI = "http://en2.ath.cx/release/images/oedrivers/bcmlinuxdvb_7335-${KV}-${SRCDATE}.tar.gz \
+# do not delete under line.
+# NOTE
+SRC_URI = "http://en2.ath.cx/release/images/oedrivers/bcmlinuxdvb_7335-{KV}-{SRCDATE}.tar.gz \
 		file://cfe-${MACHINE}.bin \
 		file://splash.bmp \
 		file://mediabox.splash.bmp \
@@ -68,5 +70,5 @@ do_install() {
 	fi
 }
 
-SRC_URI[md5sum] = "99203e2ce54ac287eed0d35e836266bc" 
-SRC_URI[sha256sum] = "72cc0a04f85cca63a3e9d12b8451fd4413a6acd84b8473a9cf9a3bbb2f80357b"
+SRC_URI[md5sum] = "25d03a86fd60e831c63078aa071fb432"
+SRC_URI[sha256sum] = "75634a204b66a1c5e5b9f46cf8a244e0703eef9ead2594f312716bd7c330c7a4"
