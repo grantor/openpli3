@@ -77,9 +77,6 @@ initialize: init
 
 init: $(BBLAYERS) $(CONFFILES)
 
-#	@sed -i "/SRCDATE=/d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
-#	@sed -i "/driverdate/a SRCDATE = "'$(CI_DATE)'"" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
-
 image: init update
 	@sed -i "/oedrivers/d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/md5sum/d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
