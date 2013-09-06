@@ -4,7 +4,7 @@
 MACHINE ?= ${subst /,,${subst build-,,${firstword ${dir ${wildcard build-*/}}}}}
 
 ifeq "$(MACHINE)" ""
-	MACHINE=tmtwinoe
+	MACHINE=mediabox
 endif
 
 # Adjust according to the number CPU cores to use for parallel build.
@@ -16,13 +16,13 @@ PARALLEL_MAKE ?= -j $(NR_CPU)
 # ci model different driver.
 # date format : ex) 20130807
 # md5sum format : ex) src_uri
-DATE = "20130807"
-DRV_MD5SUM = "fa1ee1f180466da805d8ea053851c19e"
-DRV_SHA256SUM = "7aeda68dac50145a2b16ca06914f9e20106ebd002302af2efb9cd216c3838333"
+DATE = "20130906"
+DRV_MD5SUM = "e52af64d8cb33847fe4e948ca54e9ccf"
+DRV_SHA256SUM = "5dc6b699e7487f28487d2181bdb48d0f77c0cd2836ed2dd307caf0652b3e7e82"
 
-CI_DATE = "20130807"
-CI_DRV_MD5SUM = "25d03a86fd60e831c63078aa071fb432"
-CI_DRV_SHA256SUM = "75634a204b66a1c5e5b9f46cf8a244e0703eef9ead2594f312716bd7c330c7a4"
+CI_DATE = "20130906"
+CI_DRV_MD5SUM = "95b98ac3341548181f2623fc9a8c31b0"
+CI_DRV_SHA256SUM = "1c91040ce7ca5a48b1298d424f5eec1342c78c1981eec4714833d81e8d704060"
 
 XSUM ?= md5sum
 
