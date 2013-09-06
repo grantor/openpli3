@@ -11,7 +11,15 @@ PV = "0.1+git${SRCPV}"
 PKGV = "0.1+git${GITPKGV}"
 PR = "r0.72"
 
-require openplugins.inc
+DEPENDS += "enigma2"
+
+SRC_URI = "git://github.com/pli3/Openwebif.git;protocol=git"
+
+S="${WORKDIR}/git"
+
+SRCREV_pn-${PN} ?= "${AUTOREV}"
+
+#require openplugins.inc
 
 SRC_URI += "file://base.py \
 			file://info.py \
@@ -19,6 +27,7 @@ SRC_URI += "file://base.py \
 			file://${MACHINE}.jpg \
 			file://${MACHINE}.png \
 			file://ajax.py \
+			file://timers.py \
 "
 
 # Just a quick hack to "compile" it
@@ -34,13 +43,14 @@ do_install() {
 	cp -rp ${WORKDIR}/ajax.py ${D}${PLUGINPATH}/controllers/
 	cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
 	cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/controllers/models/
+	cp -rp ${WORKDIR}/timers.py ${D}${PLUGINPATH}/controllers/models/
 	find ${D}${PLUGINPATH}/ -name '*.pyo' -exec rm {} \;
 
 	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "tmnanosuper" -o "${MACHINE}" = "tm2tsuper" -o "${MACHINE}" = "force1" ]; then
 		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/
 		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
-	elif [ "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" -o "${MACHINE}" = "optimussos1" -o "${MACHINE}" = "optimussos2"]; then
+	elif [ "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
 		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/${MACHINE}hd.jpg
 		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/${MACHINE}hd.png
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/${MACHINE}hd.html

@@ -17,6 +17,7 @@ TARGET_ARCH = "mipsel"
 DEFAULTTUNE = "mips32el"
 
 GLIBC_EXTRA_OECONF = "--with-tls"
+DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts"
 
 PREFERRED_VERSION_linux-${MACHINE} = "3.5.3"
 PREFERRED_VERSION_linux-libc-headers = "3.5"

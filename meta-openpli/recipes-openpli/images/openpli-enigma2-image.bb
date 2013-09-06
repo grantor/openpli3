@@ -1,6 +1,7 @@
 require openpli-image.bb
 
 WIFI_DRIVERS = " \
+	rtl8192cu \	
 	firmware-carl9170 \
 	firmware-htc7010 \
 	firmware-htc9271 \
@@ -21,6 +22,8 @@ WIFI_DRIVERS = " \
 	rtl8192cu \
 	\
 	kernel-module-dvb-usb-dw2102 \
+	kernel-module-dvb-usb-rtl2832 \
+	kernel-module-dvb-usb-a867 \
 	firmware-carl9170 \
 	firmware-af9005 \
 	firmware-as102-data1-st \
@@ -82,6 +85,7 @@ WIFI_DRIVERS = " \
 	"
 
 ENIGMA2_PLUGINS = " \
+	enigma2-plugin-extensions-autobouquets \
 	enigma2-plugin-extensions-cooltvguide \
 	enigma2-plugin-extensions-cutlisteditor \
 	enigma2-plugin-extensions-graphmultiepg \

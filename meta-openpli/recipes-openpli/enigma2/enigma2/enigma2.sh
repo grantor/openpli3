@@ -49,6 +49,10 @@ case $ret in
 	2)
 		/sbin/reboot
 		;;
+	3)
+		rm -fR /home/root/.gstreamer-0.10
+		rm /tmp/.listen.camd.socket.ignore
+		;;
 	4)
 		/sbin/rmmod lcd
 #		/usr/sbin/fpupgrade --upgrade 2>&1 | tee /home/root/fpupgrade.log
@@ -76,5 +80,6 @@ case $ret in
 		/usr/bin/enigma2_end.sh $ret
 		;;
 	*)
+		rm /tmp/.listen.camd.socket.ignore
 		;;
 esac

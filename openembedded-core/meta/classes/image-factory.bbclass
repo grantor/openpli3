@@ -224,18 +224,33 @@ rootfs_make_factory () {
 	done
 
 ## NOTE : first release must booting enigma2.
-#	touch ${IMAGE_ROOTFS}/etc/.run_factory_test
+	touch ${IMAGE_ROOTFS}/etc/.run_factory_test
+	touch ${IMAGE_ROOTFS}/etc/factory
 
 	## Softcam menu remove.
 	sed -i '/recording_setup/d' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
 	sed -i '/RecordPathsSettings/d' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
-	sed -n '/cam_setup/,/\/menu/!p' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml > ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new
+	sed -n '/hardisk_selection/,/\/menu/!p' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml > ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new
 	cp ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
+#	sed -n '/cam_setup/,/\/menu/!p' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml > ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new
+#	cp ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
+	sed -i "/cam_setup/,/cam/d" ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
+	sed -i 73d ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
 	rm -rf ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new 
+
+## pluginbrowser green button remove.
+	sed -i '1193s/ButtonTemplate2/ButtonTemplate1/g' ${IMAGE_ROOTFS}/usr/share/enigma2/PLi-HD/skin.xml
+
+## factory image copy
+	cp ${DEPLOY_DIR_IMAGE}/factory.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
 
 ## factory ipkg.
 	if [ "${MACHINE}" == "mediabox" ];then
 		cp ${IMAGE_ROOTFS}/etc/mediabox.var ${IMAGE_ROOTFS}/etc/var.tar
+		rm -rf ${IMAGE_ROOTFS}/etc/mediabox.var
+	else
+		rm -rf ${IMAGE_ROOTFS}/etc/var.tar
+		mv ${IMAGE_ROOTFS}/etc/factory.var.tar ${IMAGE_ROOTFS}/etc/var.tar
 	fi
 }
 

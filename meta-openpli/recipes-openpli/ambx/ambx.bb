@@ -14,7 +14,8 @@ PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 PR = "r0"
 
-SRC_URI = "git://openpli.git.sourceforge.net/gitroot/openpli/plugin-ambx;protocol=git"
+#SRC_URI = "git://openpli.git.sourceforge.net/gitroot/openpli/plugin-ambx;protocol=git"
+SRC_URI = "git://github.com/pli3/plugin-ambx.git;protocol=git"
 
 S = "${WORKDIR}/git"
 
