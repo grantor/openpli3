@@ -27,7 +27,6 @@ SRC_URI += "file://base.py \
 			file://${MACHINE}.jpg \
 			file://${MACHINE}.png \
 			file://ajax.py \
-			file://timers.py \
 "
 
 # Just a quick hack to "compile" it
