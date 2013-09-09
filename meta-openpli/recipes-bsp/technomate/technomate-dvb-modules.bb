@@ -5,7 +5,7 @@ LICENSE = "CLOSED"
 
 # Not Delete Under Line
 # driverdate
-SRCDATE = "20130807"
+SRCDATE = "20130906"
 KV = "3.5.3"
 PV = "${KV}+${SRCDATE}"
 PR = "r0"
@@ -69,9 +69,10 @@ do_install() {
 	else
 		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
 		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
-		cp ${WORKDIR}/mediabox.splash.bmp ${DEPLOY_DIR_IMAGE}/mediabox.splash.bmp
+		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.bmp
+		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/factory.bmp
 	fi
 }
 
-SRC_URI[md5sum] = "fa1ee1f180466da805d8ea053851c19e"
-SRC_URI[sha256sum] = "7aeda68dac50145a2b16ca06914f9e20106ebd002302af2efb9cd216c3838333"
+SRC_URI[md5sum] = "e52af64d8cb33847fe4e948ca54e9ccf"
+SRC_URI[sha256sum] = "5dc6b699e7487f28487d2181bdb48d0f77c0cd2836ed2dd307caf0652b3e7e82"
