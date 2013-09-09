@@ -85,7 +85,6 @@ WIFI_DRIVERS = " \
 	"
 
 ENIGMA2_PLUGINS = " \
-	enigma2-plugin-extensions-autobouquets \
 	enigma2-plugin-extensions-cooltvguide \
 	enigma2-plugin-extensions-cutlisteditor \
 	enigma2-plugin-extensions-graphmultiepg \
