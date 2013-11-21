@@ -19,11 +19,15 @@ WIFI_DRIVERS = " \
 	kernel-module-rt73usb \
 	kernel-module-rtl8187 \
 	kernel-module-zd1211rw \
-	rtl8192cu \
 	\
 	kernel-module-dvb-usb-dw2102 \
 	kernel-module-dvb-usb-rtl2832 \
 	kernel-module-dvb-usb-a867 \
+	kernel-module-fc0011 \
+	kernel-module-af9033 \
+	kernel-module-tua9001 \
+	kernel-module-dvb-usb-af9035 \
+	\
 	firmware-carl9170 \
 	firmware-af9005 \
 	firmware-as102-data1-st \
@@ -41,6 +45,7 @@ WIFI_DRIVERS = " \
 	firmware-dvb-fe-xc5000-1.6.114 \
 	firmware-dvb-usb-af9015 \
 	firmware-dvb-usb-af9035-01 \
+	firmware-dvb-usb-af9035-02 \
 	firmware-dvb-usb-bluebird-01 \
 	firmware-dvb-usb-bluebird-02 \
 	firmware-dvb-usb-dib0700-01 \
@@ -84,7 +89,12 @@ WIFI_DRIVERS = " \
 	firmware-zd1211 \
 	"
 
+RRECOMMENDS = " \
+		dvb-usb-drivers-meta \
+"
+
 ENIGMA2_PLUGINS = " \
+	enigma2-plugin-extensions-autobouquets \
 	enigma2-plugin-extensions-cooltvguide \
 	enigma2-plugin-extensions-cutlisteditor \
 	enigma2-plugin-extensions-graphmultiepg \

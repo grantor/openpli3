@@ -6,9 +6,9 @@ require conf/license/openpli-gplv2.inc
 DVBPROVIDER ?= "kernel"
 
 RDEPENDS_${PN} = " \
+	${DVBPROVIDER}-module-dvb-usb-dw2102 \
 	firmware-dvb-usb-s660 \
-	firmware-dvb-usb-dw2102 \
-	firmware-dvb-usb-dw2104 \
+	firmware-dvb-fe-ds3000 \
 	"
 
 PV = "1.0"

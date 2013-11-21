@@ -1,5 +1,5 @@
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS = " \
-	technomate-dvb-modules \
+	technomate-dvb-modules-7356 \
 	"
 
 include conf/machine/include/autoload-filesystems.inc
@@ -17,11 +17,12 @@ TARGET_ARCH = "mipsel"
 DEFAULTTUNE = "mips32el"
 
 GLIBC_EXTRA_OECONF = "--with-tls"
+DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts"
 
-PREFERRED_VERSION_linux-${MACHINE} = "3.8.3"
-PREFERRED_VERSION_linux-libc-headers = "3.8.3"
+PREFERRED_VERSION_linux-${MACHINE} = "3.9.7"
+PREFERRED_VERSION_linux-libc-headers = "3.9.7"
 
-KV = "linux-kernel-3.8.3"
+KV = "linux-kernel-3.9.7"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-${MACHINE}"
 
@@ -33,9 +34,12 @@ IMAGE_FSTYPES ?= "ubi"
 UBI_VOLNAME = "rootfs"
 MKUBIFS_ARGS = "-m 2048 -e 126976 -c 4096 -F"
 UBINIZE_ARGS = "-m 2048 -p 128KiB"
+//MKUBIFS_ARGS = "-m 4096 -e 1040384 -c 4096 -F"
+//UBINIZE_ARGS = "-m 4096 -p 1024KiB"
 
 IMAGEDIR ?= "${MACHINE}"
-EXTRA_IMAGECMD_COMPAT = " --eraseblock=0x20000 -n -l "
+//EXTRA_IMAGECMD_COMPAT = " --eraseblock=0x100000 -n -l --pagesize=1000 "
+EXTRA_IMAGECMD_COMPAT = " --eraseblock=0x20000 -n -l --pagesize=0x800 "
 
 IMAGE_CMD_ubi_prepend = " \
         mkfs.jffs2 --root=${IMAGE_ROOTFS}/boot --faketime \
@@ -55,7 +59,7 @@ IMAGE_CMD_ubi_append = " \
 		rm -rf update; \
 		rm -rf ${DEPLOY_DIR_IMAGE}/enigma2_2.7*; \
 		cp ${DEPLOY_DIR_IPK}/${MACHINE}/enigma2_2.7* ${DEPLOY_DIR_IMAGE}; \
-		gzip -f -c ${DEPLOY_DIR_IMAGE}/vmlinux-3.5.3*.bin > ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin.gz; \
+		gzip -f -c ${DEPLOY_DIR_IMAGE}/vmlinux-3.9.7*.bin > ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin.gz; \
 		cp ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin.gz ${DEPLOY_DIR_IMAGE}/oe_kernel.bin; \
 		tar cf ${DEPLOY_DIR_IMAGE}/test_${MACHINE}_${DATE} oe_kernel.bin enigma2_2.7* bcmlinuxdvb.ko; \
         "

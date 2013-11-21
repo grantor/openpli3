@@ -1,8 +1,15 @@
-require linux-firmware.inc
+LICENSE = "CLOSED"
+PR = "r02"
+SRC_URI = "file://dvb-usb-af9035-02.fw-30092013.tar.gz"
 
-DESCRIPTION = "Firmware for dvb-usb-af9035 02"
+S = "${WORKDIR}"
 
-SRCREV = "13f0b6bda7b567d29c747196aa65ad82b18651ca"
+PACKAGES = "${PN}"
+FILES_${PN} += "${base_libdir}/firmware"
+
+PACKAGE_ARCH = "all"
+
+DESCRIPTION = "Firmware for dvb-usb-af9035-02"
 
 do_install() {
 	install -d ${D}${base_libdir}/firmware

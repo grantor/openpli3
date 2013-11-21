@@ -27,6 +27,7 @@ SRC_URI += "file://base.py \
 			file://${MACHINE}.jpg \
 			file://${MACHINE}.png \
 			file://ajax.py \
+			file://timers.py \
 "
 
 # Just a quick hack to "compile" it
@@ -42,6 +43,7 @@ do_install() {
 	cp -rp ${WORKDIR}/ajax.py ${D}${PLUGINPATH}/controllers/
 	cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
 	cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/controllers/models/
+	cp -rp ${WORKDIR}/timers.py ${D}${PLUGINPATH}/controllers/models/
 	find ${D}${PLUGINPATH}/ -name '*.pyo' -exec rm {} \;
 
 	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "tmnanosuper" -o "${MACHINE}" = "tm2tsuper" -o "${MACHINE}" = "force1" ]; then

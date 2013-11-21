@@ -6,7 +6,14 @@ RDEPENDS_${PN} = "libcrypto-compat"
 PR = "r5"
 
 SRC_URI = "http://downloads.pli-images.org/softcams/mgcamd${PV}.zip \
-	http://downloads.pli-images.org/softcams/newcamd.conf;name=conf"
+	http://downloads.pli-images.org/softcams/newcamd.conf;name=conf \ 
+        file://ignore.list \
+        file://mg_cfg \
+        file://newcamd.list \
+        file://peer.cfg \
+        file://priority.list \
+        file://replace.list \
+        "
 
 S = "${WORKDIR}/"
 

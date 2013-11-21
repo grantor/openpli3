@@ -223,20 +223,32 @@ rootfs_make_factory () {
 		touch ${IMAGE_ROOTFS}/etc/opkg/${feed}-feed.conf
 	done
 
-## NOTE : first release must booting enigma2.
-	touch ${IMAGE_ROOTFS}/etc/.run_factory_test
-	touch ${IMAGE_ROOTFS}/etc/factory
 
 	## Softcam menu remove.
-	sed -i '/recording_setup/d' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
-	sed -i '/RecordPathsSettings/d' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
-	sed -n '/hardisk_selection/,/\/menu/!p' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml > ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new
-	cp ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
-#	sed -n '/cam_setup/,/\/menu/!p' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml > ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new
-#	cp ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
-	sed -i "/cam_setup/,/cam/d" ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
-	sed -i 73d ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
-	rm -rf ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new 
+	if [ "${MACHINE}" == "optimussos1" -o "${MACHINE}" == "optimussos2" ]; then
+		sed -i "/cam_setup/,/cam/d" ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
+		sed -i 82d ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml	
+		touch ${IMAGE_ROOTFS}/etc/.run_factory_test
+		touch ${IMAGE_ROOTFS}/etc/factory
+	else
+		sed -i '/recording_setup/d' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
+		sed -i '/RecordPathsSettings/d' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
+		sed -n '/hardisk_selection/,/\/menu/!p' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml > ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new
+		cp ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
+	#	sed -n '/cam_setup/,/\/menu/!p' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml > ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new
+	#	cp ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
+		sed -i "/cam_setup/,/cam/d" ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
+		if [ "${MACHINE}" == "ios200" -o "${MACHINE}" == "tmnanooe" ]; then
+			sed -i 74d ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
+			touch ${IMAGE_ROOTFS}/etc/.run_factory_test
+			touch ${IMAGE_ROOTFS}/etc/factory
+		else
+			sed -i 73d ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
+			rm -rf ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new 
+			touch ${IMAGE_ROOTFS}/etc/.run_factory_test
+			touch ${IMAGE_ROOTFS}/etc/factory
+		fi
+	fi
 
 ## pluginbrowser green button remove.
 	sed -i '1193s/ButtonTemplate2/ButtonTemplate1/g' ${IMAGE_ROOTFS}/usr/share/enigma2/PLi-HD/skin.xml
