@@ -4,7 +4,7 @@
 MACHINE ?= ${subst /,,${subst build-,,${firstword ${dir ${wildcard build-*/}}}}}
 
 ifeq "$(MACHINE)" ""
-	MACHINE=mediabox
+	MACHINE=force1
 endif
 
 # Adjust according to the number CPU cores to use for parallel build.
@@ -16,9 +16,9 @@ PARALLEL_MAKE ?= -j $(NR_CPU)
 # ci model different driver.
 # date format : ex) 20130807
 # md5sum format : ex) src_uri
-DATE = "20130906"
-DRV_MD5SUM = "e52af64d8cb33847fe4e948ca54e9ccf"
-DRV_SHA256SUM = "5dc6b699e7487f28487d2181bdb48d0f77c0cd2836ed2dd307caf0652b3e7e82"
+DATE = "20131121"
+DRV_MD5SUM = "47e71678d8e72ee3c4111b139cf47ce3"
+DRV_SHA256SUM = "f2edf122ae2452babd2ebe0a3b7c5335a210bec555edd50bb467fc71b6cf8708"
 
 CI_DATE = "20130906"
 CI_DRV_MD5SUM = "95b98ac3341548181f2623fc9a8c31b0"
@@ -90,6 +90,20 @@ image: init update
 	@sed -i "/x11-sato ssh-server-dropbear/a inherit image" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
 	@echo 'Building image for $(MACHINE)'
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake openpli-enigma2-image
+
+7356-image: init update
+	@sed -i "/oedrivers/d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules-7356.bb
+	@sed -i "/md5sum/d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules-7356.bb
+	@sed -i "/sha256sum/d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules-7356.bb
+	@sed -i "/SRCDATE = /d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules-7356.bb
+	@sed -i "/driverdate/a SRCDATE = "'$(DATE)'"" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules-7356.bb
+	@sed -i "/NOTE/a SRC_URI = \"http://en2.ath.cx/release/images/oedrivers/bcmlinuxdvb_7356-\$$\{KV}-\$$\{SRCDATE}.tar.gz \\\\" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules-7356.bb
+	@echo "SRC_URI[md5sum] = "'$(DRV_MD5SUM)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules-7356.bb
+	@echo "SRC_URI[sha256sum] = "'$(DRV_SHA256SUM)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules-7356.bb
+	@sed -i "/inherit/d" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
+	@sed -i "/x11-sato ssh-server-dropbear/a inherit image" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
+	@echo 'Building image for $(MACHINE)'
+	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake openpli-enigma2-image-7356
 
 ci-image: init update
 	@sed -i "/oedrivers/d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
