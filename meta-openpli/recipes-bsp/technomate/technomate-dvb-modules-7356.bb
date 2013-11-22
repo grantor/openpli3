@@ -3,7 +3,9 @@ SECTION = "base"
 PRIORITY = "required"
 LICENSE = "CLOSED"
 
-SRCDATE = "20130912"
+# Not Delete Under Line
+# driverdate
+SRCDATE = "20131121"
 KV = "3.9.7"
 PV = "${KV}+${SRCDATE}"
 PR = "r0"
@@ -11,6 +13,8 @@ PR = "r0"
 RCONFLICTS_${PN} = "technomate-dvb-modules-7356"
 RREPLACES_${PN} = "technomate-dvb-modules-7356"
 
+# do not delete under line.
+# NOTE
 SRC_URI = "http://en2.ath.cx/release/images/oedrivers/bcmlinuxdvb_7356-${KV}-${SRCDATE}.tar.gz \
 		file://cfe-${MACHINE}.bin \
 		file://splash.bmp \
@@ -40,17 +44,17 @@ do_install() {
     done
 	if [ ! -d "${DEPLOY_DIR_IMAGE}" ]; then
 		mkdir -p ${DEPLOY_DIR_IMAGE}
-#		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
+		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
 		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
 		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.bmp
 		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/factory.bmp
 	else
-#		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
+		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
 		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
 		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.bmp
 		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/factory.bmp
 	fi
 }
 
-SRC_URI[md5sum] = "2692ffc661a2d5af914dd56293465359"
-SRC_URI[sha256sum] = "53a7e05b18d4afd3e367fc07c87200a2eb95cdb3811a54f325e9059b8d71fa75"
+SRC_URI[md5sum] = "47e71678d8e72ee3c4111b139cf47ce3"
+SRC_URI[sha256sum] = "f2edf122ae2452babd2ebe0a3b7c5335a210bec555edd50bb467fc71b6cf8708"

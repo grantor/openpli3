@@ -160,6 +160,8 @@ class BaseController(resource.Resource):
 			ret["remote"] = "mediabox"
 		elif ret["box"] == "2t" or ret["box"] == "tm2toe" or ret["box"] == "tm2toesr":
 			ret["remote"] = "tm2toe"
+		elif ret["box"] == "tmnano2t":
+			ret["remote"] = "tmnano2t"
 		elif ret["box"] == "tmtwinoe" or ret["box"] == "tmtwinoesr":
 			ret["remote"] = "tmtwinoe"
 		elif ret["box"] == "tmnanooe":
