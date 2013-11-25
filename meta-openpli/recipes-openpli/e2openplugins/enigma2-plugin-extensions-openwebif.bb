@@ -46,7 +46,7 @@ do_install() {
 	cp -rp ${WORKDIR}/timers.py ${D}${PLUGINPATH}/controllers/models/
 	find ${D}${PLUGINPATH}/ -name '*.pyo' -exec rm {} \;
 
-	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "tmnanosuper" -o "${MACHINE}" = "tm2tsuper" -o "${MACHINE}" = "force1" ]; then
+	if [ "${MACHINE}" = "tmtwinoe" -o "${MACHINE}" = "tm2toe" -o "${MACHINE}" = "tmsingle" -o "${MACHINE}" = "tmnanooe" -o "${MACHINE}" = "tmnanosuper" -o "${MACHINE}" = "tm2tsuper" -o "${MACHINE}" = "force1" -o "${MACHINE}" = "tmnano2t" ]; then
 		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/
 		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/

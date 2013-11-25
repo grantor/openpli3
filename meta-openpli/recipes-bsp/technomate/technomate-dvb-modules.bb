@@ -5,7 +5,7 @@ LICENSE = "CLOSED"
 
 # Not Delete Under Line
 # driverdate
-SRCDATE = "20130906"
+SRCDATE = "20131125"
 KV = "3.5.3"
 PV = "${KV}+${SRCDATE}"
 PR = "r0"
@@ -74,5 +74,5 @@ do_install() {
 	fi
 }
 
-SRC_URI[md5sum] = "e52af64d8cb33847fe4e948ca54e9ccf"
-SRC_URI[sha256sum] = "5dc6b699e7487f28487d2181bdb48d0f77c0cd2836ed2dd307caf0652b3e7e82"
+SRC_URI[md5sum] = "808027371fe191b61ccb98f0bfdfb96c"
+SRC_URI[sha256sum] = "5c3438203f70ca14fca1d6a3f17f058310ecbabcd91c4be9104e867dcfa654c6"

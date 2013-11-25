@@ -275,7 +275,11 @@ do_install_append() {
 	cp ${WORKDIR}/var ${D}/etc/var.tar
 	cp ${WORKDIR}/factory.var ${D}/etc/factory.var.tar
 	cp ${WORKDIR}/menu-${MACHINE}.xml ${D}/usr/share/enigma2/menu.xml
-	cp ${WORKDIR}/keymap.xml ${D}/usr/share/enigma2/keymap.xml
+	if [ "${MACHINE}" = tmnano2t ];then
+		cp ${WORKDIR}/${MACHINE}.keymap.xml ${D}/usr/share/enigma2/keymap.xml
+	else
+		cp ${WORKDIR}/keymap.xml ${D}/usr/share/enigma2/keymap.xml
+	fi
 	tar xf ${WORKDIR}/def_ins -C ${WORKDIR}/
 	mv ${WORKDIR}/def_inst ${D}/etc/.def_inst
 	cp ${WORKDIR}/e2settings ${D}/etc/.e2settings.tar
