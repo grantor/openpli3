@@ -16,9 +16,14 @@ PARALLEL_MAKE ?= -j $(NR_CPU)
 # ci model different driver.
 # date format : ex) 20130807
 # md5sum format : ex) src_uri
-DATE = "20131125"
-DRV_MD5SUM = "808027371fe191b61ccb98f0bfdfb96c"
-DRV_SHA256SUM = "5c3438203f70ca14fca1d6a3f17f058310ecbabcd91c4be9104e867dcfa654c6"
+
+DATE = "20131121"
+DRV_MD5SUM = "47e71678d8e72ee3c4111b139cf47ce3"
+DRV_SHA256SUM = "f2edf122ae2452babd2ebe0a3b7c5335a210bec555edd50bb467fc71b6cf8708"
+
+DATE_7335 = "20131125"
+DRV_MD5SUM_7335 = "808027371fe191b61ccb98f0bfdfb96c"
+DRV_SHA256SUM_7335 = "5c3438203f70ca14fca1d6a3f17f058310ecbabcd91c4be9104e867dcfa654c6"
 
 CI_DATE = "20130906"
 CI_DRV_MD5SUM = "95b98ac3341548181f2623fc9a8c31b0"
@@ -82,10 +87,10 @@ image: init update
 	@sed -i "/md5sum/d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/sha256sum/d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/SRCDATE = /d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
-	@sed -i "/driverdate/a SRCDATE = "'$(DATE)'"" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
+	@sed -i "/driverdate/a SRCDATE = "'$(DATE_7335)'"" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/NOTE/a SRC_URI = \"http://en2.ath.cx/release/images/oedrivers/bcmlinuxdvb_7335-\$$\{KV}-\$$\{SRCDATE}.tar.gz \\\\" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
-	@echo "SRC_URI[md5sum] = "'$(DRV_MD5SUM)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
-	@echo "SRC_URI[sha256sum] = "'$(DRV_SHA256SUM)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
+	@echo "SRC_URI[md5sum] = "'$(DRV_MD5SUM_7335)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
+	@echo "SRC_URI[sha256sum] = "'$(DRV_SHA256SUM_7335)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/inherit/d" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
 	@sed -i "/x11-sato ssh-server-dropbear/a inherit image" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
 	@echo 'Building image for $(MACHINE)'
