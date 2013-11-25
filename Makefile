@@ -4,7 +4,7 @@
 MACHINE ?= ${subst /,,${subst build-,,${firstword ${dir ${wildcard build-*/}}}}}
 
 ifeq "$(MACHINE)" ""
-	MACHINE=force1
+	MACHINE=tmnano2t
 endif
 
 # Adjust according to the number CPU cores to use for parallel build.
@@ -16,9 +16,9 @@ PARALLEL_MAKE ?= -j $(NR_CPU)
 # ci model different driver.
 # date format : ex) 20130807
 # md5sum format : ex) src_uri
-DATE = "20131121"
-DRV_MD5SUM = "47e71678d8e72ee3c4111b139cf47ce3"
-DRV_SHA256SUM = "f2edf122ae2452babd2ebe0a3b7c5335a210bec555edd50bb467fc71b6cf8708"
+DATE = "20131125"
+DRV_MD5SUM = "808027371fe191b61ccb98f0bfdfb96c"
+DRV_SHA256SUM = "5c3438203f70ca14fca1d6a3f17f058310ecbabcd91c4be9104e867dcfa654c6"
 
 CI_DATE = "20130906"
 CI_DRV_MD5SUM = "95b98ac3341548181f2623fc9a8c31b0"
