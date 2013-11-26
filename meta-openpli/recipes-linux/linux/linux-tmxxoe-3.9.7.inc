@@ -11,7 +11,7 @@ SRC_URI[sha256sum] = "bbdbe0383ed74325692a7c65fb0375272775198780a40668f9cd315b5e
 
 LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${KV}-r1/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-SRC_URI = "http://192.168.1.158/pub/OpenPLi3/src/linux-${KV}-r1-${SRCDATE}.tar.gz \
+SRC_URI = "http://en2.ath.cx/pub/OpenPLi3/src/linux-${KV}-r1-${SRCDATE}.tar.gz \
 		file://${MACHINE}_defconfig \
 		"
 
