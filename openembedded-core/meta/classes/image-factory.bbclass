@@ -238,7 +238,7 @@ rootfs_make_factory () {
 	#	sed -n '/cam_setup/,/\/menu/!p' ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml > ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new
 	#	cp ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml.new ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
 		sed -i "/cam_setup/,/cam/d" ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
-		if [ "${MACHINE}" == "ios200" -o "${MACHINE}" == "tmnanooe" ]; then
+		if [ "${MACHINE}" == "ios200" ]; then
 			sed -i 74d ${IMAGE_ROOTFS}/usr/share/enigma2/menu.xml
 			touch ${IMAGE_ROOTFS}/etc/.run_factory_test
 			touch ${IMAGE_ROOTFS}/etc/factory
