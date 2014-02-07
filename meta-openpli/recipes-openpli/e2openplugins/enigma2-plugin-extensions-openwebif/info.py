@@ -78,6 +78,14 @@ def getInfo():
 		elif model == "optimussos2":
 			model = "Optimuss OS2"
 			brand = "Edision"
+		elif model == "optimussos1plus":
+			model = "Optimuss OS1+"
+			brand = "Edision"
+		elif model == "optimussos2plus":
+			model = "Optimuss OS2+"
+			brand = "Edision"
+		elif model == "force1plus":
+			model = "force1+"
 		else:
 			brand = "4D"
 	elif fileExists("/proc/stb/info/azmodel"):

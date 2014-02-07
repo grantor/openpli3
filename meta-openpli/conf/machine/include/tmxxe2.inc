@@ -7,7 +7,6 @@ include conf/machine/include/autoload-filesystems.inc
 MACHINE_EXTRA_RRECOMMENDS = " \
 	vuplus-shutdown \
 	gst-plugin-dvbmediasink \
-	ntfs-3g \
 	"
 
 EXTRA_IMAGEDEPENDS += "\

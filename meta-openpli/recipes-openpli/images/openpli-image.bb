@@ -56,7 +56,6 @@ OPTIONAL_PACKAGES += " \
 	mpd \
 	mtd-utils \
 	nano \
-	ntfs-3g \
 	ntp \
 	openresolv \
 	openssh \

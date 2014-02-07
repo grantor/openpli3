@@ -19,8 +19,9 @@ SRC_URI = "http://en2.ath.cx/release/images/oedrivers/bcmlinuxdvb_7335-${KV}-${S
 		file://cfe-${MACHINE}.bin \
 		file://splash.bmp \
 		file://mediabox.splash.bmp \
-		file://optimuss.splash.bmp \
 		file://factory.bmp \
+		file://optimuss.splash.bmp \
+		file://optimuss.factory.bmp \
 "
 
 S = "${WORKDIR}"
@@ -52,7 +53,7 @@ do_install() {
 
 
 	if [ "${MACHINE}" = "mediabox" ]; then
-        cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
+		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
 		cp ${WORKDIR}/mediabox.splash.bmp ${DEPLOY_DIR_IMAGE}/mediabox.splash.bmp
 		cp ${WORKDIR}/mediabox.splash.bmp ${DEPLOY_DIR_IMAGE}/mediabox.bmp
 		cp ${WORKDIR}/factory.bmp ${DEPLOY_DIR_IMAGE}/
@@ -60,7 +61,7 @@ do_install() {
 		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
 		cp ${WORKDIR}/optimuss.splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
 		cp ${WORKDIR}/optimuss.splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.bmp
-		cp ${WORKDIR}/optimuss.splash.bmp ${DEPLOY_DIR_IMAGE}/factory.bmp
+		cp ${WORKDIR}/optimuss.factory.bmp ${DEPLOY_DIR_IMAGE}/factory.bmp
 	elif [ "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
 		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
 		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
@@ -74,5 +75,5 @@ do_install() {
 	fi
 }
 
-SRC_URI[md5sum] = "808027371fe191b61ccb98f0bfdfb96c"
-SRC_URI[sha256sum] = "5c3438203f70ca14fca1d6a3f17f058310ecbabcd91c4be9104e867dcfa654c6"
+SRC_URI[md5sum] = "75a8ab5538b7cc248db83a8f9f7b06a8"
+SRC_URI[sha256sum] = "6fc5020ec0ab209850fd5e6cfe1f4c57b6553c23c9e2ca0cc5589fb9f9994670"

@@ -13,8 +13,13 @@ inherit gettext gconf
 
 SRC_URI += " \
 	${@base_contains("MACHINE", "force1", "file://V4L2_CID_HCENTER_DEPRECATED.patch file://fix_gst4l2bufferpool_error_input.patch", "", d)} \
+	${@base_contains("MACHINE", "force1plus", "file://V4L2_CID_HCENTER_DEPRECATED.patch file://fix_gst4l2bufferpool_error_input.patch", "", d)} \
+	${@base_contains("MACHINE", "force2", "file://V4L2_CID_HCENTER_DEPRECATED.patch file://fix_gst4l2bufferpool_error_input.patch", "", d)} \
 	${@base_contains("MACHINE", "tm2tsuper", "file://V4L2_CID_HCENTER_DEPRECATED.patch file://fix_gst4l2bufferpool_error_input.patch", "", d)} \
+	${@base_contains("MACHINE", "tmnano2super", "file://V4L2_CID_HCENTER_DEPRECATED.patch file://fix_gst4l2bufferpool_error_input.patch", "", d)} \
 	${@base_contains("MACHINE", "tmnanosuper", "file://V4L2_CID_HCENTER_DEPRECATED.patch file://fix_gst4l2bufferpool_error_input.patch", "", d)} \
+	${@base_contains("MACHINE", "optimussos1plus", "file://V4L2_CID_HCENTER_DEPRECATED.patch file://fix_gst4l2bufferpool_error_input.patch", "", d)} \
+	${@base_contains("MACHINE", "optimussos2plus", "file://V4L2_CID_HCENTER_DEPRECATED.patch file://fix_gst4l2bufferpool_error_input.patch", "", d)} \
 	"
 EXTRA_OECONF += "--disable-aalib --disable-esd --disable-shout2 --disable-libcaca --disable-hal --without-check \
                  --disable-orc"

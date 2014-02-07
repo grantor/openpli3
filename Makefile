@@ -17,17 +17,17 @@ PARALLEL_MAKE ?= -j $(NR_CPU)
 # date format : ex) 20130807
 # md5sum format : ex) src_uri
 
-DATE = "20131121"
-DRV_MD5SUM = "47e71678d8e72ee3c4111b139cf47ce3"
-DRV_SHA256SUM = "f2edf122ae2452babd2ebe0a3b7c5335a210bec555edd50bb467fc71b6cf8708"
+DATE = "20140205"
+DRV_MD5SUM = "7082de1dc64b4366dfae82c3b00cd71b"
+DRV_SHA256SUM = "43709171e42a7be37212e473a7451e089b2386a5be86f5ed94d02d90cda073fc"
 
-DATE_7335 = "20131205"
-DRV_MD5SUM_7335 = "423ee167c897d2c02542933dd4ddea8d"
-DRV_SHA256SUM_7335 = "cd3c472971c11984cfa6933766a87c3c529cd0c6c1bca6a172e7a57ce343ea6b"
+DATE_7335 = "20140204"
+DRV_MD5SUM_7335 = "943c3eb23122dafdd7a3128d042be779"
+DRV_SHA256SUM_7335 = "0cef186c69ae5dff82461a13f31153360e4eccdd26972834b520732cc785e4d3"
 
-CI_DATE = "20130906"
-CI_DRV_MD5SUM = "95b98ac3341548181f2623fc9a8c31b0"
-CI_DRV_SHA256SUM = "1c91040ce7ca5a48b1298d424f5eec1342c78c1981eec4714833d81e8d704060"
+CI_DATE = "20140204"
+CI_DRV_MD5SUM = "31f8fb613d8c6830fa68ed1967da708d"
+CI_DRV_SHA256SUM = "c5e7a38c39b4e7dfe47ccd88a2495b795cab4b305876462698c7b3c242e2ebd8"
 
 XSUM ?= md5sum
 
@@ -88,7 +88,7 @@ image: init update
 	@sed -i "/sha256sum/d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/SRCDATE = /d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/driverdate/a SRCDATE = "'$(DATE_7335)'"" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
-	@sed -i "/NOTE/a SRC_URI = \"http://en2.ath.cx/release/images/oedrivers/bcmlinuxdvb_7335-\$$\{KV}-\$$\{SRCDATE}.tar.gz \\\\" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
+	@sed -i "/NOTE/a SRC_URI = \"http://ilove.hobby-site.com/release/images/oedrivers/bcmlinuxdvb_7335-\$$\{KV}-\$$\{SRCDATE}.tar.gz \\\\" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@echo "SRC_URI[md5sum] = "'$(DRV_MD5SUM_7335)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@echo "SRC_URI[sha256sum] = "'$(DRV_SHA256SUM_7335)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/inherit/d" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
@@ -102,7 +102,7 @@ image: init update
 	@sed -i "/sha256sum/d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules-7356.bb
 	@sed -i "/SRCDATE = /d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules-7356.bb
 	@sed -i "/driverdate/a SRCDATE = "'$(DATE)'"" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules-7356.bb
-	@sed -i "/NOTE/a SRC_URI = \"http://en2.ath.cx/release/images/oedrivers/bcmlinuxdvb_7356-\$$\{KV}-\$$\{SRCDATE}.tar.gz \\\\" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules-7356.bb
+	@sed -i "/NOTE/a SRC_URI = \"http://ilove.hobby-site.com/release/images/oedrivers/bcmlinuxdvb_7356-\$$\{KV}-\$$\{SRCDATE}.tar.gz \\\\" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules-7356.bb
 	@echo "SRC_URI[md5sum] = "'$(DRV_MD5SUM)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules-7356.bb
 	@echo "SRC_URI[sha256sum] = "'$(DRV_SHA256SUM)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules-7356.bb
 	@sed -i "/inherit/d" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
@@ -116,7 +116,7 @@ ci-image: init update
 	@sed -i "/sha256sum/d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/SRCDATE = /d" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/driverdate/a SRCDATE = "'$(CI_DATE)'"" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
-	@sed -i "/NOTE/a SRC_URI = \"http://en2.ath.cx/release/images/oedrivers/ci/bcmlinuxdvbci_7335-\$$\{KV}-\$$\{SRCDATE}.tar.gz \\\\" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
+	@sed -i "/NOTE/a SRC_URI = \"http://ilove.hobby-site.com/release/images/oedrivers/ci/bcmlinuxdvbci_7335-\$$\{KV}-\$$\{SRCDATE}.tar.gz \\\\" $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@echo "SRC_URI[md5sum] = "'$(CI_DRV_MD5SUM)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@echo "SRC_URI[sha256sum] = "'$(CI_DRV_SHA256SUM)'"" >> $(CURDIR)/meta-openpli/recipes-bsp/technomate/technomate-dvb-modules.bb
 	@sed -i "/inherit/d" $(CURDIR)/openembedded-core/meta/classes/core-image.bbclass
@@ -145,7 +145,7 @@ update:
 		echo "The openpli OE is now up-to-date."; \
 	fi
 
-.PHONY: all image factory init initialize update usage
+.PHONY: all image init initialize update usage
 
 BITBAKE_ENV_HASH := $(call hash, \
 	'BITBAKE_ENV_VERSION = "0"' \

@@ -142,34 +142,12 @@ class BaseController(resource.Resource):
 		elif fileExists("/proc/stb/info/azmodel"):
 			ret['box'] = open("/proc/stb/info/model").read().strip()
 			
-		if ret["box"] == "ios200hd":
-			ret["remote"] = "ios200hd"
-		elif ret["box"] == "ios300hd":
-			ret["remote"] = "ios300hd"
-		elif ret["box"] == "ios100hd":
-			ret["remote"] = "ios100hd"
-		elif ret["box"] == "tm2tsuper":
-			ret["remote"] = "tm2tsuper"
-		elif ret["box"] == "tmnanosuper":
-			ret["remote"] = "tmnanosuper"
-		elif ret["box"] == "force1":
-			ret["remote"] = "force1"
-		elif ret["box"] == "tmsingle" or ret["box"] == "tmsinglesr" or ret["box"] == "tmsinglemini" or ret["box"] == "tmsingleminisr" or ret["box"] == "tmsingleoe":
+		if ret["box"].startswith("tmsingle"):
 			ret["remote"] = "tmsingle"
-		elif ret["box"] == "mediabox":
-			ret["remote"] = "mediabox"
 		elif ret["box"] == "2t" or ret["box"] == "tm2toe" or ret["box"] == "tm2toesr":
 			ret["remote"] = "tm2toe"
-		elif ret["box"] == "tmnano2t":
-			ret["remote"] = "tmnano2t"
-		elif ret["box"] == "tmtwinoe" or ret["box"] == "tmtwinoesr":
+		elif ret["box"].startswith("tmtwin"):
 			ret["remote"] = "tmtwinoe"
-		elif ret["box"] == "tmnanooe":
-			ret["remote"] = "tmnanooe"
-		elif ret["box"] == "optimussos1":
-			ret["remote"] = "optimussos1"
-		elif ret["box"] == "optimussos2":
-			ret["remote"] = "optimussos2"
 		elif ret["box"] == "ultimo":
 			ret["remote"] = "vu_ultimo"
 		elif ret["box"] == "et9x00" or ret["box"] == "et9000" or ret["box"] == "et9200":
@@ -189,7 +167,7 @@ class BaseController(resource.Resource):
 		elif ret["box"] == "ini-7000" or ret["box"] == "ini-5000":
 			ret["remote"] = "ini-7000"
 		else:
-			ret["remote"] = "dmm"
+			ret["remote"] = ret["box"]
 		
 		return ret
 		

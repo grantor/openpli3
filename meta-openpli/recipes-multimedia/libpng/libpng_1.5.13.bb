@@ -11,7 +11,7 @@ DEPENDS = "zlib"
 PR = "r0"
 
 #SRC_URI = "ftp://ftp.simplesystems.org/pub/png/src/libpng-${PV}.tar.bz2;name=libpng"
-SRC_URI = "http://en2.ath.cx/pub/OpenPLi3/src/libpng-${PV}.tar.bz2;name=libpng"
+SRC_URI = "http://ilove.hobby-site.com/pub/OpenPLi3/src/libpng-${PV}.tar.bz2;name=libpng"
 
 S = "${WORKDIR}/libpng-${PV}"
 

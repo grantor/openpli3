@@ -5,7 +5,7 @@ LICENSE = "CLOSED"
 
 # Not Delete Under Line
 # driverdate
-SRCDATE = "20131121"
+SRCDATE = "20140128"
 KV = "3.9.7"
 PV = "${KV}+${SRCDATE}"
 PR = "r0"
@@ -15,9 +15,11 @@ RREPLACES_${PN} = "technomate-dvb-modules-7356"
 
 # do not delete under line.
 # NOTE
-SRC_URI = "http://en2.ath.cx/release/images/oedrivers/bcmlinuxdvb_7356-${KV}-${SRCDATE}.tar.gz \
+SRC_URI = "http://ilove.hobby-site.com/release/images/oedrivers/bcmlinuxdvb_7356-${KV}-${SRCDATE}.tar.gz \
 		file://cfe-${MACHINE}.bin \
 		file://splash.bmp \
+		file://optimuss.splash.bmp \
+		file://optimuss.factory.bmp \
 "
 
 S = "${WORKDIR}"
@@ -44,10 +46,13 @@ do_install() {
     done
 	if [ ! -d "${DEPLOY_DIR_IMAGE}" ]; then
 		mkdir -p ${DEPLOY_DIR_IMAGE}
+	fi
+
+	if [ "${MACHINE}" = "optimussos1plus" -o "${MACHINE}" = "optimussos2plus" ]; then
 		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
-		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
-		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.bmp
-		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/factory.bmp
+		cp ${WORKDIR}/optimuss.splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
+		cp ${WORKDIR}/optimuss.splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.bmp
+		cp ${WORKDIR}/optimuss.factory.bmp ${DEPLOY_DIR_IMAGE}/factory.bmp
 	else
 		cp ${WORKDIR}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin
 		cp ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
@@ -56,5 +61,6 @@ do_install() {
 	fi
 }
 
-SRC_URI[md5sum] = "47e71678d8e72ee3c4111b139cf47ce3"
-SRC_URI[sha256sum] = "f2edf122ae2452babd2ebe0a3b7c5335a210bec555edd50bb467fc71b6cf8708"
+
+SRC_URI[md5sum] = "46a72b481d936dab7cf730117886bdd0"
+SRC_URI[sha256sum] = "dd8962281c6a673326aa37fb8a1a912f30095e43a6c082e622549710572f1abf"

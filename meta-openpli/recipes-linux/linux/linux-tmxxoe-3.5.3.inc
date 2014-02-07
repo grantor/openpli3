@@ -11,7 +11,7 @@ SRC_URI[sha256sum] = "5f5c600b2dc5d50c68b9c9fcb52f7265d064c7a58e3cf393170f3239ce
 
 LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${KV}/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-SRC_URI = "http://en2.ath.cx/pub/OpenPLi3/src/linux-${KV}-${SRCDATE}.tar.gz \
+SRC_URI = "http://ilove.hobby-site.com/pub/OpenPLi3/src/linux-${KV}-${SRCDATE}.tar.gz \
         file://nfs-max-rwsize-8k.patch \
         file://${MACHINE}_defconfig"
 

@@ -3,15 +3,15 @@ LICENSE = "GPL"
 SECTION = "kernel"
 KV = "3.9.7"
 
-SRCDATE = "20131114"
+SRCDATE = "20140204"
 MACHINE_KERNEL_PR_append = ".5"
 
-SRC_URI[md5sum] = "fd817360f6c68c0a6421cba357a3adea"
-SRC_URI[sha256sum] = "bbdbe0383ed74325692a7c65fb0375272775198780a40668f9cd315b5edf4a08"
+SRC_URI[md5sum] = "d34135964957aa620f4e688a38db415c"
+SRC_URI[sha256sum] = "405cad568f8174a99967e734a90e5ae2561fbe602d278be4605c867c50ccf8fd"
 
 LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${KV}-r1/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-SRC_URI = "http://en2.ath.cx/pub/OpenPLi3/src/linux-${KV}-r1-${SRCDATE}.tar.gz \
+SRC_URI = "http://en3.homeftp.net/pub/OpenPLi3/src/linux-${KV}-r1-${SRCDATE}.tar.gz \
 		file://${MACHINE}_defconfig \
 		"
 
