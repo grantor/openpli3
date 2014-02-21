@@ -4,7 +4,7 @@
 MACHINE ?= ${subst /,,${subst build-,,${firstword ${dir ${wildcard build-*/}}}}}
 
 ifeq "$(MACHINE)" ""
-	MACHINE=tmnano2t
+	MACHINE=mediabox
 endif
 
 # Adjust according to the number CPU cores to use for parallel build.
@@ -21,9 +21,9 @@ DATE = "20140205"
 DRV_MD5SUM = "7082de1dc64b4366dfae82c3b00cd71b"
 DRV_SHA256SUM = "43709171e42a7be37212e473a7451e089b2386a5be86f5ed94d02d90cda073fc"
 
-DATE_7335 = "20140204"
-DRV_MD5SUM_7335 = "943c3eb23122dafdd7a3128d042be779"
-DRV_SHA256SUM_7335 = "0cef186c69ae5dff82461a13f31153360e4eccdd26972834b520732cc785e4d3"
+DATE_7335 = "20140221"
+DRV_MD5SUM_7335 = "0a003b20e4bb16c5a8b49a1c374e66c6"
+DRV_SHA256SUM_7335 = "0f9b3fd1eca4868fb7cea44c91d43c1ea2565b73ac68aff71c61ad4eb14811b9"
 
 CI_DATE = "20140204"
 CI_DRV_MD5SUM = "31f8fb613d8c6830fa68ed1967da708d"
